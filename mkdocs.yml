@@ -1,0 +1,4 @@
+site_name: MkDocs Basic theme
+theme_dir: rtd
+
+repo_url: https://github.com/d0ugal/mkdocs-basic-theme

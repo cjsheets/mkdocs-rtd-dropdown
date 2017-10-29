@@ -1,0 +1,5 @@
+*.pyc
+dist/
+mkdocs_basic_theme.egg-info/
+site/
+.env
