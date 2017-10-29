@@ -1,9 +1,10 @@
 {%- if nav_item.url %}
-    {{nav_item.url | debug}}
-    <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+    <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}"> - {{ nav_item.title }}</a>
 {%- else %}
-    {{nav_item | debug}}
-    <span class="caption-text">{{ nav_item.title }}</span>
+    {%- for nav_item in nav_item.children %}
+        {{nav_item.input_path | debug}}
+    {% endfor %}
+    <span class="caption-text">+ {{ nav_item.title }}</span>
 {%- endif %}
 
 {%- if nav_item.active or (nav_item == page or nav_item.children) %}
