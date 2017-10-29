@@ -1,4 +1,4 @@
 site_name: MkDocs Basic theme
-theme_dir: rtd
+theme_dir: readthedocs-nested
 
 repo_url: https://github.com/d0ugal/mkdocs-basic-theme
