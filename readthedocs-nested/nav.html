@@ -18,9 +18,9 @@
 
 
 {%- if input_path == ''  %}
-  <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}"> - {{ nav_item.title }}</a>
+  <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
 {%- else %}
-  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ input_path }}"> - {{ nav_item.title }}</a>
+  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ input_path }}">{{ nav_item.title }}</a>
 {%- endif %}
 
 {%- if nav_item.active and (nav_item == page or nav_item.children) %}

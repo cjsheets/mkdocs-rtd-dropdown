@@ -192,3 +192,10 @@ td, th {
    border-collapse: collapse;
 }
 
+/*
+ * readthedocs-nested overrides
+ */
+
+.wy-menu-vertical li.current ul .submenu-toc {
+    display: none;
+}
