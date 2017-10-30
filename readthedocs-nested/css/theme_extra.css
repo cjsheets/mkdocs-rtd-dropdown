@@ -199,3 +199,7 @@ td, th {
 .wy-menu-vertical li.current ul .submenu-toc {
     display: none;
 }
+
+.toc-item, .toc-item:hover {
+    background: #c9c9c9;
+}

@@ -5,7 +5,7 @@
   {% if toc_item.children %}
     <ul class="{% if not nav_item.active%} submenu-toc{%endif%}">
     {% for toc__item in toc_item.children %}
-        <li class="toctree-l{{ navlevel + 2 }}" >
+        <li class="toctree-l{{ navlevel + 2 }}{% if navlevel > 1%} toc-item{%endif%}" >
           <a class="toctree-l{{ navlevel + 2 }}" href="{{ toc__item.url }}">{{ toc__item.title }}</a>
         </li>
     {% endfor %}
