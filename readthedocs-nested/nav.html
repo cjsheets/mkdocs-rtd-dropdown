@@ -17,10 +17,10 @@
 
 
 
-{%- if input_path != ''  %}
-      <a class="{% if nav_item.active%}current{%endif%}" href="/{{ input_path }}"> - {{ nav_item.title }}</a>
-{%- else %}
+{%- if input_path == ''  %}
   <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}"> - {{ nav_item.title }}</a>
+{%- else %}
+  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ input_path }}"> - {{ nav_item.title }}</a>
 {%- endif %}
 
 {%- if nav_item.active and (nav_item == page or nav_item.children) %}
@@ -31,7 +31,7 @@
     {%- if nav_item.children %}
       {%- set navlevel = navlevel + 1%}
       {%- for nav_item in nav_item.children %}
-        <li class="{% if navlevel > 2 %}toctree-l{{ navlevel }}{% endif %}{% if nav_item.active%} current{%endif%}">
+        <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
           {% include 'nav.html' %}
         </li>
       {%- endfor %}

@@ -149,9 +149,9 @@ form .search-query {
     display: inherit;
 }
 
-.wy-menu-vertical li ul.subnav ul.subnav{
+/* .wy-menu-vertical li ul.subnav ul.subnav{
     padding-left: 1em;
-}
+} */
 
 .wy-menu-vertical .subnav li.current > a {
     padding-left: 2.42em;
