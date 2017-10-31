@@ -1,2 +1,1 @@
-# git+http://github.com/cjsheets/mkdocs.git@dev#egg=mkdocs
-../mkdocs/
+git+http://github.com/cjsheets/mkdocs.git@dev#egg=mkdocs
