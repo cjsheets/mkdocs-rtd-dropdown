@@ -196,8 +196,12 @@ td, th {
  * readthedocs-nested overrides
  */
 
-.wy-menu-vertical li.current ul .submenu-toc {
-    display: none;
+.wy-menu-vertical li ul {
+  display: none
+}
+
+.wy-menu-vertical li.current ul {
+    display: block;
 }
 
 .toc-item, .toc-item:hover {
