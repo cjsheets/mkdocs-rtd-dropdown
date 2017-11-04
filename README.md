@@ -1,13 +1,24 @@
 RTD Dropdown for MkDocs
-=====================================
-[![Pypi Version](1)][2]
+=======================
+[![Pypi Version][pypi-image]][pypi-link]
 
-  [1]: http://img.shields.io/pypi/v/mkdocs-rtd-dropdown.svg
-  [2]: https://pypi.python.org/pypi/mkdocs-rtd-dropdown
+  [pypi-image]: http://img.shields.io/pypi/v/mkdocs-rtd-dropdown.svg
+  [pypi-link]: https://pypi.python.org/pypi/mkdocs-rtd-dropdown
 
 A ReadTheDocs theme for [MkDocs](http://www.mkdocs.org/)
 
-![Dropdown Demo](docs/ing/example.png)
+![Dropdown Demo](docs/img/example.png)
+
+
+
+Features
+--------
+
+* Based on the [MkDocs ReadTheDocs](https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes) theme
+* Adds dropdown functionality to mimic ReadTheDocs
+
+For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues/588).
+
 
 How to use
 ----------
