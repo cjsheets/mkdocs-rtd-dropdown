@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>MkDocs Plugins - ReadTheDocs Dropdown</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MkDocs Plugins";
+    var mkdocs_page_input_path = "user-guide/plugins.md";
+    var mkdocs_page_url = "/user-guide/plugins/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ReadTheDocs Dropdown</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+
+  <a class="" href="../..">MkDocs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    
+  
+  <a class="" href="/about/contributing">About</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    
+  
+  <a class="current" href="/user-guide/configuration">User guide</a>
+  <ul class="subnav">
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../configuration/">Configuration</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../custom-themes/">Custom themes</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../deploying-your-docs/">Deploying your docs</a>
+        </li>
+        <li class="toctree-l2 current">
+          
+
+  <a class="current" href="./">MkDocs Plugins</a>
+  <ul class="subnav">
+      
+  
+  
+    <ul class="">
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#installing-plugins">Installing Plugins</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#using-plugins">Using Plugins</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#developing-plugins">Developing Plugins</a>
+        </li>
+    
+    </ul>
+  
+
+  </ul>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../styling-your-docs/">Styling your docs</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../writing-your-docs/">Writing your docs</a>
+        </li>
+  </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ReadTheDocs Dropdown</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>MkDocs Plugins</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cjsheets/readthedocs-dropdown/edit/master/docs/user-guide/plugins.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mkdocs-plugins">MkDocs Plugins</h1>
+<p>A Guide to installing, using and creating MkDocs Plugins</p>
+<hr />
+<h2 id="installing-plugins">Installing Plugins</h2>
+<p>Before a plugin can be used, it must be installed on the system. If you are
+using a plugin which comes with MkDocs, then it was installed when you installed
+MkDocs. However, to install third party plugins, you need to determine the
+appropriate package name and install it using <code>pip</code>:</p>
+<pre><code>pip install mkdocs-foo-plugin
+</code></pre>
+<p>Once a plugin has been successfully installed, it is ready to use. It just needs
+to be <a href="#using-plugins">enabled</a> in the configuration file.</p>
+<h2 id="using-plugins">Using Plugins</h2>
+<p>The <a href="../configuration/#plugins"><code>plugins</code></a> configuration option should contain a list of plugins to
+use when building the site. Each "plugin" must be a string name assigned to the
+plugin (see the documentation for a given plugin to determine its "name"). A
+plugin listed here must already be <a href="#installing-plugins">installed</a>.</p>
+<pre><code class="yaml">plugins:
+    - search
+</code></pre>
+
+<p>Some plugins may provide configuration options of their own. If you would like
+to set any configuration options, then you can nest a key/value mapping
+(<code>option_name: option value</code>) of any options that a given plugin supports. Note
+that a colon (<code>:</code>) must follow the plugin name and then on a new line the option
+name and value must be indented and separated by a colon. If you would like to
+define multiple options for a single plugin, each option must be defined on a
+separate line.</p>
+<pre><code class="yaml">plugins:
+    - search:
+        lang: en
+        foo: bar
+</code></pre>
+
+<p>For information regarding the configuration options available for a given plugin,
+see that plugin's documentation.</p>
+<p>For a list of default plugins and how to override them, see the
+<a href="../configuration/#plugins">configuration</a> documentation.</p>
+<h2 id="developing-plugins">Developing Plugins</h2>
+<p>Like MkDocs, plugins must be written in Python. It is generally expected that
+each plugin would be distributed as a separate Python module, although it is
+possible to define multiple plugins in the same module. At a minimum, a MkDocs
+Plugin must consist of a <a href="#baseplugin">BasePlugin</a> subclass and an <a href="#entry-point">entry point</a> which
+points to it.</p>
+<h3 id="baseplugin">BasePlugin</h3>
+<p>A subclass of <code>mkdocs.pluhgins.BasePlugin</code> should define the behavior of the plugin.
+The class generally consists of actions to perform on specific events in the build
+process as well as a configuration scheme for the plugin.</p>
+<p>All <code>BasePlugin</code> subclasses contain the following attributes:</p>
+<h4 id="config_scheme">config_scheme</h4>
+<p>:   A tuple of configuration validation class instances (to be defined in a subclass).</p>
+<h4 id="config">config</h4>
+<p>:   A dictionary of configuration options for the plugin which is populated by the
+    <code>load_config</code> method.</p>
+<p>All <code>BasePlugin</code> subclasses contain the following method(s):</p>
+<h4 id="load_configoptions">load_config(options)</h4>
+<p>:   Loads configuration from a dictionary of options. Returns a tuple of <code>(errors,
+    warnings)</code>.</p>
+<h4 id="on_event_name">on_&lt;event_name&gt;()</h4>
+<p>:   Optional methods which define the behavior for specific <a href="#events">events</a>. The plugin
+    should define its behavior within these methods. Replace <code>&lt;event_name&gt;</code> with
+    the actual name of the event. For example, the <code>pre_build</code> event would be
+    defined in the <code>on_pre_build</code> method.</p>
+<pre><code>Most events accept one positional argument and various keyword arguments. It
+is generally expected that the positional argument would be modified (or
+replaced) by the plugin and returned. If nothing is returned (the method
+returns `None`), then the original, unmodified object is used. The keyword
+arguments are simply provided to give context and/or supply data which may
+be used to determine how the positional argument should be modified. It is
+good practice to accept keyword arguments as `**kwargs`. In the event that
+additional keywords are provided to an event in a future version of MkDocs,
+there will be no need to alter your plugin.
+
+For example, the following event would add an additional static_template to
+the theme config:
+
+    class MyPlugin(BasePlugin):
+        def on_config(self, config, **kwargs):
+            config['theme'].static_templates.add('my_template.html')
+            return config
+</code></pre>
+<h3 id="events">Events</h3>
+<p>There are three kinds of events: <a href="#global-events">Global Events</a>, <a href="#page-events">Page Events</a> and
+<a href="#template-events">Template Events</a>.</p>
+<h4 id="global-events">Global Events</h4>
+<p>Global events are called once per build at either the beginning or end of the
+build process. Any changes made in these events will have a global effect on the
+entire site.</p>
+<h5 id="on_serve">on_serve</h5>
+<p>:   The <code>serve</code> event is only called when the <code>serve</code> command is used during
+    development. It is passed the <code>Server</code> instance which can be modified before
+    it is activated. For example, additional files or directories could be added
+    to the list of "watched" filed for auto-reloading.</p>
+<pre><code>Parameters:
+: __server:__ `livereload.Server` instance
+: __config:__ global configuration object
+
+Returns:
+: `livereload.Server` instance
+</code></pre>
+<h5 id="on_config">on_config</h5>
+<p>:   The <code>config</code> event is the first event called on build and is run immediately
+    after the user configuration is loaded and validated. Any alterations to the
+    config should be made here.</p>
+<pre><code>Parameters:
+: __config:__ global configuration object
+
+Returns:
+: global configuration object
+</code></pre>
+<h5 id="on_pre_build">on_pre_build</h5>
+<p>:   The <code>pre_build</code> event does not alter any variables. Use this event to call
+    pre-build scripts.</p>
+<pre><code>Parameters:
+: __config:__ global configuration object
+</code></pre>
+<h5 id="on_nav">on_nav</h5>
+<p>:   The <code>nav</code> event is called after the site navigation is created and can
+    be used to alter the site navigation.</p>
+<pre><code>Parameters:
+: __site_navigation:__ global navigation object
+: __config:__ global configuration object
+
+Returns:
+: global navigation object
+</code></pre>
+<h5 id="on_env">on_env</h5>
+<p>:   The <code>env</code> event is called after the Jinja template environment is created
+    and can be used to alter the Jinja environment.</p>
+<pre><code>Parameters:
+: __env:__ global Jinja environment
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: global Jinja Environment
+</code></pre>
+<h5 id="on_post_build">on_post_build</h5>
+<p>:   The <code>post_build</code> event does not alter any variables. Use this event to call
+    post-build scripts.</p>
+<pre><code>Parameters:
+: __config:__ global configuration object
+</code></pre>
+<h4 id="template-events">Template Events</h4>
+<p>Template events are called once for each non-page template. Each template event
+will be called for each template defined in the <a href="../configuration/#extra_templates">extra_templates</a> config setting
+as well as any <a href="../configuration/#static_templates">static_templates</a> defined in the theme. All template events are
+called after the <a href="#on_env">env</a> event and before any <a href="#page-events">page events</a>.</p>
+<h5 id="on_pre_template">on_pre_template</h5>
+<p>:   The <code>pre_template</code> event is called immediately after the subject template is
+    loaded and can be used to alter the content of the template.</p>
+<pre><code>Parameters:
+: __template__: the template contents as string
+: __template_name__: string filename of template
+: __config:__ global configuration object
+
+Returns:
+: template contents as string
+</code></pre>
+<h5 id="on_template_context">on_template_context</h5>
+<p>:   The <code>template_context</code> event is called immediately after the context is created
+    for the subject template and can be used to alter the context for that specific
+    template only.</p>
+<pre><code>Parameters:
+: __context__: dict of template context variables
+: __template_name__: string filename of template
+: __config:__ global configuration object
+
+Returns:
+: dict of template context variables
+</code></pre>
+<h5 id="on_post_template">on_post_template</h5>
+<p>:   The <code>post_template</code> event is called after the template is rendered, but before
+    it is written to disc and can be used to alter the output of the template.
+    If an empty string is returned, the template is skipped and nothing is is
+    written to disc.</p>
+<pre><code>Parameters:
+: __output_content__: output of rendered template as string
+: __template_name__: string filename of template
+: __config:__ global configuration object
+
+Returns:
+: output of rendered template as string
+</code></pre>
+<h4 id="page-events">Page Events</h4>
+<p>Page events are called once for each Markdown page included in the site. All
+page events are called after the <a href="#on_post_template">post_template</a> event and before the <a href="#on_post_build">post_build</a>
+event.</p>
+<h5 id="on_pre_page">on_pre_page</h5>
+<p>:   The <code>pre_page</code> event is called before any actions are taken on the subject
+    page and can be used to alter the <code>Page</code> instance.</p>
+<pre><code>Parameters:
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: `mkdocs.nav.Page` instance
+</code></pre>
+<h5 id="on_page_read_source">on_page_read_source</h5>
+<p>:   The <code>on_page_read_source</code> event can replace the default mechanism to read
+    the contents of a page's source from the filesystem.</p>
+<pre><code>Parameters:
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+
+Returns:
+: The raw source for a page as unicode string. If `None` is returned, the
+  default loading from a file will be performed.
+</code></pre>
+<h5 id="on_page_markdown">on_page_markdown</h5>
+<p>:   The <code>page_markdown</code> event is called after the page's markdown is loaded
+    from file and can be used to alter the Markdown source text. The meta-
+    data has been stripped off and is available as <code>page.meta</code> at this point.</p>
+<pre><code>Parameters:
+: __markdown:__ Markdown source text of page as string
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: Markdown source text of page as string
+</code></pre>
+<h5 id="on_page_content">on_page_content</h5>
+<p>:   The <code>page_content</code> event is called after the Markdown text is rendered to
+    HTML (but before being passed to a template) and can be used to alter the
+    HTML body of the page.</p>
+<pre><code>Parameters:
+: __html:__ HTML rendered from Markdown source as string
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: HTML rendered from Markdown source as string
+</code></pre>
+<h5 id="on_page_context">on_page_context</h5>
+<p>:   The <code>page_context</code> event is called after the context for a page is created
+    and can be used to alter the context for that specific page only.</p>
+<pre><code>Parameters:
+: __context__: dict of template context variables
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: dict of template context variables
+</code></pre>
+<h5 id="on_post_page">on_post_page</h5>
+<p>:   The <code>post_template</code> event is called after the template is rendered, but
+    before it is written to disc and can be used to alter the output of the
+    page. If an empty string is returned, the page is skipped and nothing is
+    written to disc.</p>
+<pre><code>Parameters:
+: __output_content:__ output of rendered template as string
+: __page:__ `mkdocs.nav.Page` instance
+: __config:__ global configuration object
+: __site_navigation:__ global navigation object
+
+Returns:
+: output of rendered template as string
+</code></pre>
+<h3 id="entry-point">Entry Point</h3>
+<p>Plugins need to be packaged as Python libraries (distributed on PyPI separate
+from MkDocs) and each must register as a Plugin via a setuptools entry_point.
+Add the following to your <code>setup.py</code> script:</p>
+<pre><code class="python">entry_points={
+    'mkdocs.plugins': [
+        'pluginname = path.to.some_plugin:SomePluginClass',
+    ]
+}
+</code></pre>
+
+<p>The <code>pluginname</code> would be the name used by users (in the config file) and
+<code>path.to.some_plugin:SomePluginClass</code> would be the importable plugin itself
+(<code>from path.to.some_plugin import SomePluginClass</code>) where <code>SomePluginClass</code> is a
+subclass of <a href="#baseplugin">BasePlugin</a> which defines the plugin behavior. Naturally, multiple
+Plugin classes could exist in the same module. Simply define each as a separate
+entry_point.</p>
+<pre><code class="python">entry_points={
+    'mkdocs.plugins': [
+        'featureA = path.to.my_plugins:PluginA',
+        'featureB = path.to.my_plugins:PluginB'
+    ]
+}
+</code></pre>
+
+<p>Note that registering a plugin does not activate it. The user still needs to
+tell MkDocs to use if via the config.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../styling-your-docs/" class="btn btn-neutral float-right" title="Styling your docs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deploying-your-docs/" class="btn btn-neutral" title="Deploying your docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cjsheets/readthedocs-dropdown/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../deploying-your-docs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../styling-your-docs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

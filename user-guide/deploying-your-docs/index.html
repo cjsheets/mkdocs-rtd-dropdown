@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Deploying your docs - ReadTheDocs Dropdown</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Deploying your docs";
+    var mkdocs_page_input_path = "user-guide/deploying-your-docs.md";
+    var mkdocs_page_url = "/user-guide/deploying-your-docs/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ReadTheDocs Dropdown</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+
+  <a class="" href="../..">MkDocs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    
+  
+  <a class="" href="/about/contributing">About</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    
+  
+  <a class="current" href="/user-guide/configuration">User guide</a>
+  <ul class="subnav">
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../configuration/">Configuration</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../custom-themes/">Custom themes</a>
+        </li>
+        <li class="toctree-l2 current">
+          
+
+  <a class="current" href="./">Deploying your docs</a>
+  <ul class="subnav">
+      
+  
+  
+    <ul class="">
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#github-pages">GitHub Pages</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#read-the-docs">Read the Docs</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#pypi">PyPI</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#other-providers">Other Providers</a>
+        </li>
+    
+        <li class="toctree-l4 toc-item" >
+          <a class="toctree-l4" href="#404-pages">404 Pages</a>
+        </li>
+    
+    </ul>
+  
+
+  </ul>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../plugins/">Plugins</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../styling-your-docs/">Styling your docs</a>
+        </li>
+        <li class="toctree-l2">
+          
+
+  <a class="" href="../writing-your-docs/">Writing your docs</a>
+        </li>
+  </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ReadTheDocs Dropdown</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>Deploying your docs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cjsheets/readthedocs-dropdown/edit/master/docs/user-guide/deploying-your-docs.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="deploying-your-docs">Deploying your docs</h1>
+<p>A basic guide to deploying your docs to various hosting providers</p>
+<hr />
+<h2 id="github-pages">GitHub Pages</h2>
+<p>If you host the source code for a project on <a href="https://github.com/">GitHub</a>, you can easily use
+<a href="https://pages.github.com/">GitHub Pages</a> to host the documentation for your project. After you <code>checkout</code>
+the primary working branch (usually <code>master</code>) of the git repository where you
+maintain the source documentation for your project, run the following command:</p>
+<pre><code class="sh">mkdocs gh-deploy
+</code></pre>
+
+<p>That's it! Behind the scenes, MkDocs will build your docs and use the <a href="https://github.com/davisp/ghp-import">ghp-import</a>
+tool to commit them to the gh-pages branch and push the gh-pages branch to
+GitHub.</p>
+<p>Use <code>mkdocs gh-deploy --help</code> to get a full list of options available for the
+<code>gh-deploy</code> command.</p>
+<p>Be aware that you will not be able to review the built site before it is pushed
+to GitHub. Therefore, you may want to verify any changes you make to the docs
+beforehand by using the <code>build</code> or <code>serve</code> commands and reviewing the built
+files locally.</p>
+<p>!!! warning</p>
+<pre><code>You should never edit files in your gh-pages branch by hand if you're using
+the `gh-deploy` command because you will lose your work.
+</code></pre>
+<h2 id="read-the-docs">Read the Docs</h2>
+<p><a href="https://readthedocs.org/">Read the Docs</a> offers free documentation hosting. You can import your docs
+using any major version control system, including Mercurial, Git, Subversion,
+and Bazaar. Read the Docs supports MkDocs out-of-the-box. Follow the
+<a href="https://read-the-docs.readthedocs.io/en/latest/getting_started.html#in-markdown">instructions</a> on their site to arrange the files in your repository properly,
+create an account and point it at your publicly hosted repository. If properly
+configured, your documentation will update each time you push commits to your
+public repository.</p>
+<p>!!! note</p>
+<pre><code>To benefit from all of the [features] offered by Read the Docs, you will need
+to use the [Read the Docs theme][theme] which ships with MkDocs. The various
+themes which may be referenced in Read the Docs' documentation are Sphinx
+specific themes and will not work with MkDocs.
+</code></pre>
+<h2 id="pypi">PyPI</h2>
+<p>If you maintain a <a href="http://www.python.org/">Python</a> project which is hosted on the <a href="https://pypi.python.org/pypi">Python Package
+Index</a> (PyPI), you can use the hosting provided at <a href="https://pythonhosted.org/">pythonhosted.org</a> to
+host documentation for your project. Run the following commands from your
+project's root directory to upload your documentation:</p>
+<pre><code class="sh">mkdocs build
+python setup.py upload_docs --upload-dir=site
+</code></pre>
+
+<p>Your documentation will be hosted at <code>https://pythonhosted.org/&lt;projectname&gt;/</code>
+where <code>&lt;projectname&gt;</code> is the name you used to register your project with PyPI.</p>
+<p>There are a few prerequisites for the above to work:</p>
+<ol>
+<li>You must be using <a href="https://pythonhosted.org/setuptools/">Setuptools</a> in your <code>setup.py</code> script (<a href="https://docs.python.org/2/distutils/">Distutils</a> does
+   not offer an <code>upload_docs</code> command).</li>
+<li>Your project must already be registered with PyPI (use <code>python setup.py
+   register</code>).</li>
+<li>Your <code>mkdocs.yml</code> config file and your "docs" directory (value assigned to
+   the <a href="../configuration/#docs_dir">docs_dir</a> configuration option) are presumed to be in the root directory
+   of your project alongside your <code>setup.py</code> script.</li>
+<li>It is assumed that the default value (<code>"site"</code>) is assigned to the <a href="../configuration/#site_dir">site_dir</a>
+   configuration option in your <code>mkdocs.yaml</code> config file. If you have set a
+   different value, assign that value to the <code>--upload-dir</code> option.</li>
+</ol>
+<h2 id="other-providers">Other Providers</h2>
+<p>Any hosting provider which can serve static files can be used to serve
+documentation generated by MkDocs. While it would be impossible to document how
+to upload the docs to every hosting provider out there, the following guidelines
+should provide some general assistance.</p>
+<p>When you build your site (using the <code>mkdocs build</code> command), all of the files
+are written to the directory assigned to the <a href="../configuration/#site_dir">site_dir</a> configuration option
+(defaults to <code>"site"</code>) in your <code>mkdocs.yaml</code> config file. Generally, you will
+simply need to copy the contents of that directory to the root directory of your
+hosting provider's server. Depending on your hosting provider's setup, you may
+need to use a graphical or command line <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol">ftp</a>, <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> or <a href="https://en.wikipedia.org/wiki/Secure_copy">scp</a> client to transfer
+the files.</p>
+<p>For example, a typical set of commands from the command line might look
+something like this:</p>
+<pre><code class="sh">mkdocs build
+scp -r ./site user@host:/path/to/server/root
+</code></pre>
+
+<p>Of course, you will need to replace <code>user</code> with the username you have with your
+hosting provider and <code>host</code> with the appropriate domain name. Additionally, you
+will need to adjust the <code>/path/to/server/root</code> to match the configuration of
+your hosts' file system.</p>
+<p>See your host's documentation for specifics. You will likely want to search
+their documentation for "ftp" or "uploading site".</p>
+<h2 id="404-pages">404 Pages</h2>
+<p>When MkDocs builds the documentation it will include a 404.html file in the
+<a href="../configuration/#site_dir">build directory</a>. This file will be automatically used when
+deploying to <a href="#github-pages">GitHub</a> but only on a custom domain. Other web
+servers may be configured to use it but the feature won't always be available.
+See the documentation for your server of choice for more information.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plugins/" class="btn btn-neutral float-right" title="Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../custom-themes/" class="btn btn-neutral" title="Custom themes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cjsheets/readthedocs-dropdown/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../custom-themes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../plugins/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

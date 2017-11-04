@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>MkDocs - ReadTheDocs Dropdown</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MkDocs";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> ReadTheDocs Dropdown</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+
+  <a class="current" href=".">MkDocs</a>
+  <ul class="subnav">
+      
+  
+  
+    <ul class="">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#overview">Overview</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#installation">Installation</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#getting-started">Getting Started</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#adding-pages">Adding pages</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#theming-our-documentation">Theming our documentation</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#changing-the-favicon-icon">Changing the Favicon Icon</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#building-the-site">Building the site</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#other-commands-and-options">Other Commands and Options</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#deploying">Deploying</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#getting-help">Getting help</a>
+        </li>
+    
+    </ul>
+  
+
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    
+  
+  <a class="" href="/about/contributing">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    
+  
+  <a class="" href="/user-guide/configuration">User guide</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">ReadTheDocs Dropdown</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>MkDocs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cjsheets/readthedocs-dropdown/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mkdocs">MkDocs</h1>
+<p>Project documentation with&nbsp;Markdown.</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>MkDocs is a <strong>fast</strong>, <strong>simple</strong> and <strong>downright gorgeous</strong> static site
+generator that's geared towards building project documentation. Documentation
+source files are written in Markdown, and configured with a single YAML
+configuration file.</p>
+<h3 id="host-anywhere">Host anywhere</h3>
+<p>MkDocs builds completely static HTML sites that you can host on GitHub pages,
+Amazon S3, or <a href="./user-guide/deploying-your-docs/">anywhere</a> else you choose.</p>
+<h3 id="great-themes-available">Great themes available</h3>
+<p>There's a stack of good looking themes available for MkDocs. Choose between
+the built in themes: <a href="./user-guide/styling-your-docs/#mkdocs">mkdocs</a> and <a href="./user-guide/styling-your-docs/#readthedocs">readthedocs</a>, select one of the 3rd
+party themes in the <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">MkDocs wiki</a>, or <a href="./user-guide/custom-themes/">build your own</a>.</p>
+<h3 id="preview-your-site-as-you-work">Preview your site as you work</h3>
+<p>The built-in dev-server allows you to preview your documentation as you're
+writing it. It will even auto-reload and refresh your browser whenever you save
+your changes.</p>
+<h3 id="easy-to-customize">Easy to customize</h3>
+<p>Get your project documentation looking just the way you want it by customizing
+the theme.</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<h3 id="install-with-a-package-manager">Install with a Package Manager</h3>
+<p>If you have and use a package manager (such as <a href="https://help.ubuntu.com/community/AptGet/Howto">apt-get</a>, <a href="http://dnf.readthedocs.io/en/latest/index.html">dnf</a>, <a href="http://brew.sh/">homebrew</a>,
+<a href="http://yum.baseurl.org/">yum</a>, <a href="https://chocolatey.org/">chocolatey</a>, etc.) to install packages on your system, then you may
+want to search for a "MkDocs" package and, if a recent version is available,
+install it with your package manager (check your system's documentation for
+details). That's it, you're done! Skip down to <a href="#getting-started">Getting Started</a>.</p>
+<p>If your package manager does not have a recent "MkDocs" package, you can still
+use your package manager to install "Python" and "pip". Then you can use pip to
+<a href="#installing-mkdocs">install MkDocs</a>.</p>
+<h3 id="manual-installation">Manual Installation</h3>
+<p>In order to manually install MkDocs you'll need <a href="https://www.python.org/">Python</a> installed on your
+system, as well as the Python package manager, <a href="http://pip.readthedocs.io/en/stable/installing/">pip</a>. You can check if you have
+these already installed from the command line:</p>
+<pre><code class="bash">$ python --version
+Python 2.7.2
+$ pip --version
+pip 1.5.2
+</code></pre>
+
+<p>MkDocs supports Python versions 2.7, 3.3, 3.4, 3.5 and pypy.</p>
+<h4 id="installing-python">Installing Python</h4>
+<p>Install <a href="https://www.python.org/">Python</a> by downloading an installer appropriate for your system from
+<a href="https://www.python.org/downloads/">python.org</a> and running it.</p>
+<p>!!! Note</p>
+<pre><code>If you are installing Python on Windows, be sure to check the box to have
+Python added to your PATH if the installer offers such an option (it's
+normally off by default).
+
+![Add Python to PATH](img/win-py-install.png)
+</code></pre>
+<h4 id="installing-pip">Installing pip</h4>
+<p>If you're using a recent version of Python, the Python package manager, <a href="http://pip.readthedocs.io/en/stable/installing/">pip</a>,
+is most likely installed by default. However, you may need to upgrade pip to the
+lasted version:</p>
+<pre><code class="bash">pip install --upgrade pip
+</code></pre>
+
+<p>If you need to install <a href="http://pip.readthedocs.io/en/stable/installing/">pip</a> for the first time, download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>.
+Then run the following command to install it:</p>
+<pre><code class="bash">python get-pip.py
+</code></pre>
+
+<h4 id="installing-mkdocs">Installing MkDocs</h4>
+<p>Install the <code>mkdocs</code> package using pip:</p>
+<pre><code class="bash">pip install mkdocs
+</code></pre>
+
+<p>You should now have the <code>mkdocs</code> command installed on your system. Run <code>mkdocs
+--version</code> to check that everything worked okay.</p>
+<pre><code class="bash">$ mkdocs --version
+mkdocs, version 0.15.3
+</code></pre>
+
+<p>!!! Note
+    If you are using Windows, some of the above commands may not work
+    out-of-the-box.</p>
+<pre><code>A quick solution may be to preface every Python command with `python -m`
+like this:
+
+    python -m pip install mkdocs
+    python -m mkdocs
+
+For a more permanent solution, you may need to edit your `PATH` environment
+variable to include the `Scripts` directory of your Python installation.
+Recent versions of Python include a script to do this for you. Navigate to
+your Python installation directory (for example `C:\Python34\`), open the
+`Tools`, then `Scripts` folder, and run the `win_add2path.py` file by double
+clicking on it. Alternatively, you can [download][a2p] the script and run it
+(`python win_add2path.py`).
+</code></pre>
+<hr />
+<h2 id="getting-started">Getting Started</h2>
+<p>Getting started is super easy.</p>
+<pre><code class="bash">mkdocs new my-project
+cd my-project
+</code></pre>
+
+<p>Take a moment to review the initial project that has been created for you.</p>
+<p><img alt="The initial MkDocs layout" src="./img/initial-layout.png" /></p>
+<p>There's a single configuration file named <code>mkdocs.yml</code>, and a folder named
+<code>docs</code> that will contain your documentation source files. Right now the <code>docs</code>
+folder just contains a single documentation page, named <code>index.md</code>.</p>
+<p>MkDocs comes with a built-in dev-server that lets you preview your documentation
+as you work on it. Make sure you're in the same directory as the <code>mkdocs.yml</code>
+configuration file, and then start the server by running the <code>mkdocs serve</code>
+command:</p>
+<pre><code class="bash">$ mkdocs serve
+INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+[I 160402 15:50:43 server:271] Serving on http://127.0.0.1:8000
+[I 160402 15:50:43 handlers:58] Start watching changes
+[I 160402 15:50:43 handlers:60] Start detecting changes
+</code></pre>
+
+<p>Open up <code>http://127.0.0.1:8000/</code> in your browser, and you'll see the default
+home page being displayed:</p>
+<p><img alt="The MkDocs live server" src="./img/screenshot.png" /></p>
+<p>The dev-server also supports auto-reloading, and will rebuild your documentation
+whenever anything in the configuration file, documentation directory, or theme
+directory changes.</p>
+<p>Open the <code>docs/index.md</code> document in your text editor of choice, change the
+initial heading to <code>MkLorum</code>, and save your changes. Your browser will
+auto-reload and you should see your updated documentation immediately.</p>
+<p>Now try editing the configuration file: <code>mkdocs.yml</code>. Change the
+<a href="./user-guide/configuration/#site_name"><code>site_name</code></a> setting to <code>MkLorum</code> and save the file.</p>
+<pre><code class="yaml">site_name: MkLorum
+</code></pre>
+
+<p>Your browser should immediately reload, and you'll see your new site name take
+effect.</p>
+<p><img alt="The site_name setting" src="./img/site-name.png" /></p>
+<h2 id="adding-pages">Adding pages</h2>
+<p>Now add a second page to your documentation:</p>
+<pre><code class="bash">curl 'https://jaspervdj.be/lorem-markdownum/markdown.txt' &gt; docs/about.md
+</code></pre>
+
+<p>As our documentation site will include some navigation headers, you may want to
+edit the configuration file and add some information about the order, title, and
+nesting of each page in the navigation header by adding a <a href="./user-guide/configuration/#pages"><code>pages</code></a>
+setting:</p>
+<pre><code class="yaml">site_name: MkLorum
+pages:
+    - Home: index.md
+    - About: about.md
+</code></pre>
+
+<p>Save your changes and you'll now see a navigation bar with <code>Home</code> and <code>About</code>
+items on the left as well as <code>Search</code>, <code>Previous</code>, and <code>Next</code> items on the
+right.</p>
+<p><img alt="Screenshot" src="./img/multipage.png" /></p>
+<p>Try the menu items and navigate back and forth between pages. Then click on
+<code>Search</code>. A search dialog will appear, allowing you to search for any text on
+any page. Notice that the search results include every occurrence of the search
+term on the site and links directly to the section of the page in which the
+search term appears. You get of all that with no effort or configuration on your
+part!</p>
+<p><img alt="Screenshot" src="./img/search.png" /></p>
+<h2 id="theming-our-documentation">Theming our documentation</h2>
+<p>Now change the configuration file to alter how the documentation is displayed by
+changing the theme. Edit the <code>mkdocs.yml</code> file and add a <a href="./user-guide/configuration/#theme"><code>theme</code></a> setting:</p>
+<pre><code class="yaml">site_name: MkLorum
+pages:
+    - Home: index.md
+    - About: about.md
+theme: readthedocs
+</code></pre>
+
+<p>Save your changes, and you'll see the ReadTheDocs theme being used.</p>
+<p><img alt="Screenshot" src="./img/readthedocs.png" /></p>
+<h2 id="changing-the-favicon-icon">Changing the Favicon Icon</h2>
+<p>By default, MkDocs uses the <a href="./img/favicon.ico">MkDocs favicon</a> icon. To use a different icon, create
+an <code>img</code> subdirectory in your <code>docs_dir</code> and copy your custom <code>favicon.ico</code> file
+to that directory. MkDocs will automatically detect and use that file as your
+favicon icon.</p>
+<h2 id="building-the-site">Building the site</h2>
+<p>That's looking good. You're ready to deploy the first pass of your <code>MkLorum</code>
+documentation. First build the documentation:</p>
+<pre><code class="bash">mkdocs build
+</code></pre>
+
+<p>This will create a new directory, named <code>site</code>. Take a look inside the
+directory:</p>
+<pre><code class="bash">$ ls site
+about  fonts  index.html  license  search.html
+css    img    js          mkdocs   sitemap.xml
+</code></pre>
+
+<p>Notice that your source documentation has been output as two HTML files named
+<code>index.html</code> and <code>about/index.html</code>. You also have various other media that's
+been copied into the <code>site</code> directory as part of the documentation theme. You
+even have a <code>sitemap.xml</code> file and <code>mkdocs/search_index.json</code>.</p>
+<p>If you're using source code control such as <code>git</code> you probably don't want to
+check your documentation builds into the repository. Add a line containing
+<code>site/</code> to your <code>.gitignore</code> file.</p>
+<pre><code class="bash">echo &quot;site/&quot; &gt;&gt; .gitignore
+</code></pre>
+
+<p>If you're using another source code control tool you'll want to check its
+documentation on how to ignore specific directories.</p>
+<p>After some time, files may be removed from the documentation but they will still
+reside in the <code>site</code> directory. To remove those stale files, just run <code>mkdocs</code>
+with the <code>--clean</code> switch.</p>
+<pre><code class="bash">mkdocs build --clean
+</code></pre>
+
+<h2 id="other-commands-and-options">Other Commands and Options</h2>
+<p>There are various other commands and options available. For a complete list of
+commands, use the <code>--help</code> flag:</p>
+<pre><code class="bash">mkdocs --help
+</code></pre>
+
+<p>To view a list of options available on a given command, use the <code>--help</code> flag
+with that command. For example, to get a list of all options available for the
+<code>build</code> command run the following:</p>
+<pre><code class="bash">mkdocs build --help
+</code></pre>
+
+<h2 id="deploying">Deploying</h2>
+<p>The documentation site that you just built only uses static files so you'll be
+able to host it from pretty much anywhere. <a href="https://help.github.com/articles/creating-project-pages-manually/">GitHub project pages</a> and <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Amazon
+S3</a> may be good hosting options, depending upon your needs. Upload the contents
+of the entire <code>site</code> directory to wherever you're hosting your website from and
+you're done. For specific instructions on a number of common hosts, see the
+<a href="./user-guide/deploying-your-docs/">Deploying your Docs</a> page.</p>
+<h2 id="getting-help">Getting help</h2>
+<p>To get help with MkDocs, please use the <a href="https://groups.google.com/forum/#!forum/mkdocs">discussion group</a>, <a href="https://github.com/mkdocs/mkdocs/issues">GitHub issues</a> or
+the MkDocs IRC channel <code>#mkdocs</code> on freenode.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cjsheets/readthedocs-dropdown/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="about/contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.0
+Build Date UTC : 2017-11-04 18:37:51
+-->
