@@ -5,3 +5,5 @@ site_author: 'Chad Sheets'
 theme_dir: rtd_dropdown
 
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
+
+google_analytics: ['UA-10006093-5', 'readthedocs.sheets.ch']
