@@ -16,4 +16,4 @@ publish_package:
 	@echo Build python distribution
 	python setup.py sdist bdist_wheel
 	@echo "Publish to PyPI at https://pypi.python.org/pypi/rtd-dropdown"
-	@echo "Run this manually: .env/bin/twine upload dist/rtd-dropdown-$(VERSION).tar.gz dist/rtd_dropdown-$(VERSION)-py2-none-any.whl"
+	@echo "Run this manually: .env/bin/twine upload dist/mkdocs-rtd-dropdown-$(VERSION).tar.gz dist/mkdocs_rtd_dropdown-$(VERSION)-py2-none-any.whl"
