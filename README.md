@@ -1,10 +1,13 @@
-ReadTheDocs Dropdown Theme for MkDocs
+RTD Dropdown for MkDocs
 =====================================
-![http://img.shields.io/pypi/v/mkdocs-rtd-dropdown.svg](https://pypi.python.org/pypi/mkdocs-rtd-dropdown)
+[![Pypi Version](1)][2]
 
-A revised version of the official ReadTheDocs theme for [MkDocs](http://www.mkdocs.org/)
+  [1]: http://img.shields.io/pypi/v/mkdocs-rtd-dropdown.svg
+  [2]: https://pypi.python.org/pypi/mkdocs-rtd-dropdown
 
-![Dropdown Demo](example.png)
+A ReadTheDocs theme for [MkDocs](http://www.mkdocs.org/)
+
+![Dropdown Demo](docs/ing/example.png)
 
 How to use
 ----------
