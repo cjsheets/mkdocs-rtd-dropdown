@@ -2,8 +2,21 @@ site_name: ReadTheDocs Dropdown
 site_description: 'Updated version of MkDocs ReadTheDocs theme'
 site_author: 'Chad Sheets'
 
-theme_dir: rtd_dropdown
+theme:
+  name: rtd-dropdown
 
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
+
+pages:
+    - MkDocs: index.md
+    - User Guide:
+        - Instructions: user-guide/instructions.md
+        - Configuration: user-guide/configuration.md
+        - Custom themes: user-guide/custom-themes.md
+        - Plugins: user-guide/plugins.md
+    - About:
+        - Release Notes: about/release-notes.md
+        - Contributing: about/contributing.md
+        - License: about/license.md
 
 google_analytics: ['UA-10006093-5', 'readthedocs.sheets.ch']

@@ -4,6 +4,7 @@ default:
 	@echo "Specify one of: serve, publish_docs, publish_package"
 
 env:
+	rm -Rf .env 
 	virtualenv .env
 
 serve:
