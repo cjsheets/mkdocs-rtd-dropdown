@@ -1,8 +1,6 @@
+{%- set child_url = '' %}  {#| Target of the current link |#}
 
-{#| Find the first childs url |#}
-{{ nav_item | debug }}
 
-{%- set input_path = '' %}
 {%- if nav_item.children %}
   {%- if nav_item.children[0].input_path %}
     {%- set urlList = nav_item.children[0].input_path.split('.') %}
@@ -12,18 +10,40 @@
     {%- endif %}
   {%- endif %}
   {%- set fileName = urlList.pop() %}
-  {%- set input_path = '.'.join(urlList) %}
+  {%- set child_url = '.'.join(urlList) %}
 {%- endif %}
 
 
+{%- if navlevel == 1 and child_url == '' %}
+  <ul class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">
+    <li class="toctree-l{{ navlevel }}{% if nav_item.active %} current{%endif%}">
+{%- endif %}
 
-{%- if input_path == ''  %}
+{%- if navlevel == 1 and child_url != '' %}
+  <p class="caption">{{ nav_item.title }}</p>
+{%- elif child_url == '' %}
   <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
 {%- else %}
-  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ input_path }}">{{ nav_item.title }}</a>
+  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ child_url }}">{{ nav_item.title }}</a>
 {%- endif %}
 
-{%- if nav_item.active and (nav_item == page or nav_item.children) %}
+
+{%- if navlevel == 1 and child_url != '' %}
+  <ul class="{% if nav_item.active%}current{%endif%}">
+    {%- if nav_item == page %}
+      {% include 'toc.html' %}
+    {%- endif %}
+    {%- if nav_item.children %}
+      {%- for nav_item in nav_item.children %}
+          <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+      {%- set navlevel = navlevel + 1%}
+          {% include 'nav.html' %}
+      {%- set navlevel = navlevel - 1%}
+        </li>
+      {%- endfor %}
+    {%- endif %}
+  </ul>
+{% elif nav_item.active and (nav_item == page or nav_item.children) %}
   <ul class="subnav">
     {%- if nav_item == page %}
       {% include 'toc.html' %}
@@ -31,11 +51,15 @@
     {%- if nav_item.children %}
       {%- set navlevel = navlevel + 1%}
       {%- for nav_item in nav_item.children %}
-        <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+        <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%} 1">
           {% include 'nav.html' %}
         </li>
       {%- endfor %}
       {%- set navlevel = navlevel - 1%}
     {%- endif %}
   </ul>
+{%- endif %}
+
+{%- if navlevel == 1 and child_url == '' %}
+  </li></ul>
 {%- endif %}
