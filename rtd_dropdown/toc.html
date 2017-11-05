@@ -1,5 +1,6 @@
 {% for toc_item in page.toc %}
   {% if nav_item.title != toc_item.title %}
+  {{ nav_item | debug }}
     <li class="toctree-l{{ navlevel + 1 }}"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
   {% endif %}
   {% if toc_item.children %}
