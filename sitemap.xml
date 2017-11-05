@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,60 +12,48 @@
     
         
     <url>
-     <loc>/about/contributing/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <loc>/user-guide/instructions/</loc>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>/about/license/</loc>
-     <lastmod>2017-11-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/about/release-notes/</loc>
-     <lastmod>2017-11-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
         
     <url>
      <loc>/user-guide/configuration/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user-guide/custom-themes/</loc>
-     <lastmod>2017-11-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/user-guide/deploying-your-docs/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user-guide/plugins/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <lastmod>2017-11-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/about/release-notes/</loc>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/user-guide/styling-your-docs/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <loc>/about/contributing/</loc>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/user-guide/writing-your-docs/</loc>
-     <lastmod>2017-11-04</lastmod>
+     <loc>/about/license/</loc>
+     <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
