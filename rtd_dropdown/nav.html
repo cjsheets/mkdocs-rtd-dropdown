@@ -35,7 +35,7 @@
     {%- endif %}
     {%- if nav_item.children %}
       {%- for nav_item in nav_item.children %}
-          <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+          <li class="toctree-l1{% if nav_item.active%} current{%endif%}">
       {%- set navlevel = navlevel + 1%}
           {% include 'nav.html' %}
       {%- set navlevel = navlevel - 1%}
@@ -51,7 +51,7 @@
     {%- if nav_item.children %}
       {%- set navlevel = navlevel + 1%}
       {%- for nav_item in nav_item.children %}
-        <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%} 1">
+        <li class="toctree-l2{% if nav_item.active%} current{%endif%} 1">
           {% include 'nav.html' %}
         </li>
       {%- endfor %}

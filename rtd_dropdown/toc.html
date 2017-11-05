@@ -1,13 +1,13 @@
 {% for toc_item in page.toc %}
-  <li class="toctree-l{{ navlevel }} {% if toc_item.active%}current{%endif%}">
+  <li class="toctree-l2 {% if toc_item.active%}current{%endif%}">
   {% if nav_item.title != toc_item.title %}
-    <a class="{% if toc_item.active%}current{%endif%}"  href="{{ toc_item.url }}">+{{ toc_item.title }}</a>
+    <a class="{% if toc_item.active%}current{%endif%}"  href="{{ toc_item.url }}">{{ toc_item.title }}</a>
   {% endif %}
   {% if toc_item.children %}
     <ul class="{% if not toc_item.active%} submenu-toc{%endif%}">
     {% for toc__item in toc_item.children %}
-        <li class="toctree-l{{ navlevel + 1 }}{% if navlevel > 1%} toc-item{%endif%}" >
-          <a class="toctree-l{{ navlevel + 1 }}" href="{{ toc__item.url }}">-{{ toc__item.title }}</a>
+        <li class="toctree-l3{% if navlevel > 1%} toc-item{%endif%}" >
+          <a class="toctree-l3" href="{{ toc__item.url }}">{{ toc__item.title }}</a>
         </li>
     {% endfor %}
     </ul>
