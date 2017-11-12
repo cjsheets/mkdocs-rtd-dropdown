@@ -36,6 +36,13 @@ Features
 For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues/588#issuecomment-341931422).
 
 
+Considerations
+--------------
+
+ToDo
+
+
+
 Development
 -----------
 
