@@ -51,7 +51,7 @@
  * https://github.com/mkdocs/mkdocs/issues/233
  * https://github.com/mkdocs/mkdocs/issues/834
  */
-code {
+code, .rst-content code {
     white-space: pre-wrap;
     word-wrap: break-word;
     padding: 2px 5px;
@@ -65,7 +65,7 @@ code {
  * https://github.com/mkdocs/mkdocs/issues/834
  * https://github.com/mkdocs/mkdocs/issues/233
  */
-pre code {
+pre code, .rst-content pre code {
   white-space: pre;
   word-wrap: normal;
   display: block;
