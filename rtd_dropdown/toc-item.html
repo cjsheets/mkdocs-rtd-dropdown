@@ -1,0 +1,15 @@
+
+{%- set toclevel =  toclevel + 1 %}
+<li class="{% if nav_item.active%}current{%endif%} toctree-l{{navlevel + 1}} toc-item">
+  <a href="{{ nav_item.url }}" title="{{ nav_item.title }}"
+      class="{% if nav_item.active%}current{%endif%}">
+    {{ toc_item.title }}
+    {% if toc_item.children and toclevel < 2 %}
+      <ul class="{% if nav_item.active%}current{%endif%} subnav">
+        {% for toc_item in toc_item.children %}
+          {% include "toc-item.html" %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </a>
+</li>

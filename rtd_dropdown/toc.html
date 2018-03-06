@@ -1,16 +1,25 @@
-{% for toc_item in page.toc %}
-  <li class="toctree-l2 {% if toc_item.active%}current{%endif%}">
-  {% if nav_item.title != toc_item.title %}
-    <a class="{% if toc_item.active%}current{%endif%}"  href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-  {% endif %}
-  {% if toc_item.children %}
-    <ul class="{% if not toc_item.active%} submenu-toc{%endif%}">
-    {% for toc__item in toc_item.children %}
-        <li class="toctree-l3{% if navlevel > 1%} toc-item{%endif%}" >
-          <a class="toctree-l3" href="{{ toc__item.url }}">{{ toc__item.title }}</a>
-        </li>
-    {% endfor %}
+{%- set navlevel = navlevel + 1%}
+<li class="{% if nav_item.active%}current{%endif%} toctree-l{{navlevel}}">
+  <a href="{{ nav_item.url }}" title="{{ nav_item.title }}"
+      class="{% if nav_item.active%}current{%endif%}">
+    {{ nav_item.title }}
+  </a>
+
+  {% if nav_item.children %}
+    <ul class="{% if nav_item.active%}current{%endif%} subnav">
+      {% for nav_item in nav_item.children %}
+        {% include "toc.html" %}
+      {% endfor %}
     </ul>
   {% endif %}
-  </li>
-{% endfor %}
+  {% if not nav_item.children %}
+    {% if page.toc %}
+      {%- set toclevel = 0 %}
+      <ul class="{% if nav_item.active%}current{%endif%} subnav">
+        {% for toc_item in page.toc %}
+          {% include "toc-item.html" %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+</li>
