@@ -4,6 +4,8 @@ site_author: 'Chad Sheets'
 
 theme: 
     name: rtd-dropdown
+    # Default settings
+    collapse_by_default: false
 
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
 
