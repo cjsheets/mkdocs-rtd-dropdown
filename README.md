@@ -36,7 +36,7 @@ assuming a flat file structure.
 ### File Structure
 
 Right now, your documentation can only use the first two file levels. I'm working on 
-adding support for a 3rd level of file nesting. 
+adding support for a 3rd level. 
 
 ![Code structure](docs/img/level-example.png)
 
@@ -50,24 +50,27 @@ will be a category containing the pages nested under it (ex. Instructions which 
 
 ### Collapsing
 
-The dropdown menu is 
-
-
-
-## Default Settings
-
-Both ReadTheDocs and MkDocs use a "long-page" document structure. There is no nesting of pages. See [user-guide/instructions/](http://readthedocs.sheets.ch/user-guide/instructions/) as an example.
-
-Collapsing is based on top-level headings in each page.
+The dropdown menu is controlled by heading levels.
 
 ```
-# Page Title   <-- Top level heading
+# Page Title    <-- H1
 
 content, content, content
+
+## Section      <-- H2
+
+### Section     <-- H3
 ```
 
+The rules for headings are essentially:
 
+* If there is only one H1, it will be ignored and the page/file name will be the root dropdown element
+  * Having 2 sub-menus with no choices was a wierd experience 
+  * See [MkDocs](http://readthedocs.sheets.ch/) for an example
+* If there are multiple H1, they each become dropdown elements
+  * See [user-guide/instructions](http://readthedocs.sheets.ch/user-guide/instructions/) for an example
 
+There is currently no support for H3+ dropdowns. I'm working on adding support to the next version.
 
 
 Considerations
@@ -77,7 +80,6 @@ Considerations
 * Adds dropdown functionality to the sidebar (similar to ReadTheDocs)
 
 For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues/588#issuecomment-341931422).
-
 
 
 Development
