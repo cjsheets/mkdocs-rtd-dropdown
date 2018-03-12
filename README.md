@@ -30,7 +30,29 @@ theme:
 How to use
 ----------
 
-You have a couple folder/document-structure options when using this theme.
+Similar to [readthedocs.io](https://docs.readthedocs.io/en/latest/), this theme is built
+assuming a flat file structure.
+
+### File Structure
+
+Right now, your documentation can only use the first two file levels. I'm working on 
+adding support for a 3rd level of file nesting. 
+
+![Code structure](docs/img/level-example.png)
+
+In the example above, MkDocs will be a linked-page on the sidebar (to index.md) while UserGuide
+will be a category containing the pages nested under it (ex. Instructions which contains instructions.md)
+
+![Code output](docs/img/output-example.png)
+
+
+**Note:** If you don't declare your doc-structure explicitly in mkdocs.yml, each folder is considered a file level.
+
+### Collapsing
+
+The dropdown menu is 
+
+
 
 ## Default Settings
 
