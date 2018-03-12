@@ -10,7 +10,7 @@ A ReadTheDocs theme for [MkDocs](http://www.mkdocs.org/) with collapsing menu su
 ![Dropdown Demo](docs/img/example.png)
 
 
-How to use
+How to install
 ----------
 
 Install the ReadTheDocs Dropdown theme with pip:
@@ -27,19 +27,34 @@ theme:
 ```
 
 
-Features
---------
+How to use
+----------
 
-* Based on the ReadTheDocs theme build-into MkDocs
-* Adds dropdown functionality to the sidebar (similar to ReadTheDocs)
+You have a couple folder/document-structure options when using this theme.
 
-For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues/588#issuecomment-341931422).
+## Default Settings
+
+Both ReadTheDocs and MkDocs use a "long-page" document structure. There is no nesting of pages. See [user-guide/instructions/](http://readthedocs.sheets.ch/user-guide/instructions/) as an example.
+
+Collapsing is based on top-level headings in each page.
+
+```
+# Page Title   <-- Top level heading
+
+content, content, content
+```
+
+
+
 
 
 Considerations
 --------------
 
-ToDo
+* Based on the ReadTheDocs theme build-into MkDocs
+* Adds dropdown functionality to the sidebar (similar to ReadTheDocs)
+
+For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues/588#issuecomment-341931422).
 
 
 

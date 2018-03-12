@@ -40,7 +40,6 @@ $( document ).ready(function() {
     $('table').addClass('docutils');
 
     toggleCurrent = function (elem) {
-        console.log('toggle');
         var parent_li = elem.closest('li');
         parent_li.siblings('li.current').removeClass('current');
         parent_li.siblings().find('li.current').removeClass('current');
@@ -53,10 +52,12 @@ $( document ).ready(function() {
         var link = $(this);
             expand = $('<span class="toctree-expand"></span>');
         expand.on('click', function (ev) {
-            console.log('click');
             toggleCurrent(link);
             ev.stopPropagation();
             return false;
+        });
+        link.on('click', function (ev) {
+            toggleCurrent(link);
         });
         link.prepend(expand);
     });

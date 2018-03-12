@@ -1,65 +1,63 @@
-{%- set child_url = '' %}  {#| Target of the current link |#}
+{#| Loop over the major, root-level groups |#}
+{% for nav_item in nav %}
 
+  {#| Determine the full path of the root-level link |#}
+  {%- set nav_item_children = nav_item.children %}
+  {%- set nav_ns = namespace(url_list=false) %}
 
-{%- if nav_item.children %}
-  {%- if nav_item.children[0].input_path %}
-    {%- set urlList = nav_item.children[0].input_path.split('.') %}
-  {%- else %}
-    {%- if nav_item.children[0].children[0].input_path %}
-      {%- set urlList = nav_item.children[0].children[0].input_path.split('.') %}
+  {%- if nav_item.children is defined %}
+    {% for _ in range(1, 6) %}
+      {%- if nav_item_children is defined %}
+        {%- if nav_item_children[0].input_path is defined %}
+          {%- set nav_ns.url_list = nav_item_children[0].input_path.split('.') %}
+        {%- else %}
+          {%- set nav_item_children = nav_item_children[0].children %}
+        {%- endif %}
+      {%- endif %}
+    {% endfor %}
+    {%- if nav_ns.url_list %}
+      {%- set fileName = nav_ns.url_list.pop() %}
+      {%- set child_url = '.'.join(nav_ns.url_list) %}
     {%- endif %}
   {%- endif %}
-  {%- set fileName = urlList.pop() %}
-  {%- set child_url = '.'.join(urlList) %}
-{%- endif %}
 
+  {%- if child_url is not defined %}
+    {#| There are no children, only a root-level item |#}
+    {%- set child_url = nav_item.abs_url %}
+  {%- endif %}
 
-{%- if navlevel == 1 and child_url == '' %}
-  <ul class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">
-    <li class="toctree-l{{ navlevel }}{% if nav_item.active %} current{%endif%}">
-{%- endif %}
-
-{%- if navlevel == 1 and child_url != '' %}
+{%- set navlevel = 0 %}
+{% if nav_item.children %}
   <p class="caption">{{ nav_item.title }}</p>
-{%- elif child_url == '' %}
-  <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-{%- else %}
-  <a class="{% if nav_item.active%}current{%endif%}" href="/{{ child_url }}">{{ nav_item.title }}</a>
-{%- endif %}
+{% endif %}
 
+<ul class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">
+  {% if nav_item.children %}
+    {% for nav_item in nav_item.children %}
+      {% include "nav-item.html" %}
+    {% endfor %}
+  {%- else %}
+    {#| Rendering toc directly for root-level items prevents double-title |#}
+    {% if nav_item.active %}
+      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
+        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
+        {%- set navlevel = navlevel + 1 %}
+        {% include "toc.html" %}
+      </li>
+    {%- else %}
+      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
+        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
+      </li>
+    {%- endif %}
+  {%- endif %}
+</ul>
 
-{%- if navlevel == 1 and child_url != '' %}
-  <ul class="{% if nav_item.active%}current{%endif%}">
-    {%- if nav_item == page %}
-      {% include 'toc.html' %}
-    {%- endif %}
-    {%- if nav_item.children %}
-      {%- for nav_item in nav_item.children %}
-          <li class="toctree-l1{% if nav_item.active%} current{%endif%}">
-      {%- set navlevel = navlevel + 1%}
-          {% include 'nav.html' %}
-      {%- set navlevel = navlevel - 1%}
-        </li>
-      {%- endfor %}
-    {%- endif %}
-  </ul>
-{% elif nav_item.active and (nav_item == page or nav_item.children) %}
-  <ul class="subnav">
-    {%- if nav_item == page %}
-      {% include 'toc.html' %}
-    {%- endif %}
-    {%- if nav_item.children %}
-      {%- set navlevel = navlevel + 1%}
-      {%- for nav_item in nav_item.children %}
-        <li class="toctree-l2{% if nav_item.active%} current{%endif%} 1">
-          {% include 'nav.html' %}
-        </li>
-      {%- endfor %}
-      {%- set navlevel = navlevel - 1%}
-    {%- endif %}
-  </ul>
-{%- endif %}
+<!--
+ | This is a hacky way to pass setting from the template generator to the
+ | javascript that drives the dropdown functionality
+-->
+<div style="width: 1px; height: 1px; visibility: none;">
 
-{%- if navlevel == 1 and child_url == '' %}
-  </li></ul>
-{%- endif %}
+</div>
+
+{% endfor %}

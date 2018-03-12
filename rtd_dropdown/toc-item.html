@@ -1,0 +1,27 @@
+{%- set toclevel = toclevel + 1 %}
+
+  {#| Support collapse-by-default setting |#}
+  {% if toc_item.active and (toc_ns.top_level_headings == 1 or not
+    (config.theme is defined and config.theme.collapse_by_default)) %}
+    {%- set class_is_active = 'current' %}
+  {% endif %}
+
+{% if toc_item.children is defined and toc_item.children | length > 0 and toclevel < 2 %}
+  <li class="{{class_is_active}} toctree-l{{navlevel + 1}}">
+    {% if toc_ns.top_level_headings is defined and toc_ns.top_level_headings > 1 %}
+      <a href="{{ toc_item.url }}" title="{{ nav_item.title }}"
+          class="{{class_is_active}}">
+        {{ toc_item.title }}
+      </a>
+    {% endif %}
+    <ul class="{% if toc_item.active%}current{%endif%} subnav">
+      {% for toc_item in toc_item.children %}
+        {% include "toc-item.html" %}
+      {% endfor %}
+    </ul>
+  </li>
+{% else %}
+  <li class="toctree-l{{navlevel + 1}} toc-item">
+    <a href="{{ toc_item.url }}" title="{{ nav_item.title }}">{{ toc_item.title }}</a>
+  </li>
+{% endif %}

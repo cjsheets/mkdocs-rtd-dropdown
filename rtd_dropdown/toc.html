@@ -1,16 +1,14 @@
-{% for toc_item in page.toc %}
-  <li class="toctree-l2 {% if toc_item.active%}current{%endif%}">
-  {% if nav_item.title != toc_item.title %}
-    <a class="{% if toc_item.active%}current{%endif%}"  href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-  {% endif %}
-  {% if toc_item.children %}
-    <ul class="{% if not toc_item.active%} submenu-toc{%endif%}">
-    {% for toc__item in toc_item.children %}
-        <li class="toctree-l3{% if navlevel > 1%} toc-item{%endif%}" >
-          <a class="toctree-l3" href="{{ toc__item.url }}">{{ toc__item.title }}</a>
-        </li>
+{% if page.toc %}
+
+  {%- set toc_ns = namespace(top_level_headings=0) %}
+  {% for toc_item in page.toc %}
+    {%- set toc_ns.top_level_headings = toc_ns.top_level_headings + 1 %}
+  {% endfor %}
+
+  {%- set toclevel = 0 %}
+  <ul class="{% if nav_item.active%}current{%endif%} subnav">
+    {% for toc_item in page.toc %}
+      {% include "toc-item.html" %}
     {% endfor %}
-    </ul>
-  {% endif %}
-  </li>
-{% endfor %}
+  </ul>
+{% endif %}

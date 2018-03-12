@@ -75,12 +75,9 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        {%- block site_nav %}
-	  {% set navlevel = 1 %}
-          {% for nav_item in nav %}
-		{% include 'nav.html' %}
-          {% endfor %}
-    {%- endblock %}
+      {%- block site_nav %}
+      {% include 'nav.html' %}
+      {%- endblock %}
       </div>
       &nbsp;
     </nav>
