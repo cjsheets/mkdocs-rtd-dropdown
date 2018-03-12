@@ -200,7 +200,7 @@ td, th {
 
 .wy-menu-vertical li span.toctree-expand {
     font-weight: 400;
-    padding: 0px;
+    padding: 1px;
     margin: 0px 0px 0px -14px;
     overflow-x: hidden;
 
