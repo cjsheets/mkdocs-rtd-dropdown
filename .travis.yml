@@ -1,0 +1,13 @@
+language: python
+python:
+- '2.7'
+script:
+- touch foo
+deploy:
+  provider: pypi
+  user: cjsheets
+  password:
+    secure: w/ma9MlBTjsF4cstbIVyPNfEqOdo52P6PSvP/apn8wzRVgHwqW6FnUYrkpVM1Jxu80ReeIzy34P9bt43ihsoWc/NnvTSm2Zfer2QR0xKUXW+lg0yVQbSaqznp7eBY/9stAAYU1lCoK/EhuyGLxbErMk3F9OaSi42RrC19XahkjpHPIyCPhZ/a71ADgdbhusEvaavaqEfJKfQ4+RT49AZCJnt87nMtmqmSgNe3N2xLD7kfig/9VJlmC7gDBHEIXOP3kphAStngknxQ+UMRnTqr/K34+yOFlDzfrM+AEmHbSeOl9a9Ung3KuVnz9mdlwRQUmUwW06b1nYNUW7QGdXG1LaybLbLY5p8CFMggXS97o7YXbHLyJdF0pyxMWkP2rhaeAXDJAbKtz/i5DCd1P7tEPjf4q+potqkp/LGq7T+lCLxnA6tN8zfuCHyMmTcSbvWpm06RiSZsXTw+LvevCcIeAq36jzaI6/kkc5mwVVLI6P+r8Raf2s9iIEStaG5o2rDyetiP/228So6fIdAhn+ZqG3DxLSVx0ULXevB8cW6jskDw0uKaTUEcdqsc9ndsHGiS+B9kbKPF85XBSPnZviUsYaKA8u7+y59sn59COQ31j4npf0+ukf1i+kouT2lpFX6bwMiBWu7ZrJhD7KvMO0JGb83L26zE6iEclprj5zvH2E=
+  on:
+    tags: true
+    branch: master
