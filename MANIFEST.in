@@ -1,5 +1,6 @@
 recursive-include rtd_dropdown *.ico *.js *.css *.png *.html *.eot *.svg *.ttf *.woff *.yml
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
+include  requirements.txt
 include  LICENSE
 include README.md
