@@ -3,9 +3,12 @@ site_description: 'Updated version of MkDocs ReadTheDocs theme'
 site_author: 'Chad Sheets'
 
 theme: 
-    name: rtd-dropdown
+    # name: rtd-dropdown
     # Default settings
     collapse_by_default: false
+    # Development Settings
+    name: null
+    custom_dir: 'rtd_dropdown/'
 
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
 
