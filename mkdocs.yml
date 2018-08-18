@@ -6,22 +6,34 @@ theme:
     # name: rtd-dropdown
     # Default settings
     collapse_by_default: false
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - django
     # Development Settings
     name: null
     custom_dir: 'rtd_dropdown/'
 
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
 
-pages:
-    - MkDocs: index.md
+nav:
+    - Home: index.md
     - User Guide:
-        - Instructions: user-guide/instructions.md
+        - Writing Your Docs: user-guide/writing-your-docs.md
+        - Styling Your Docs: user-guide/styling-your-docs.md
         - Configuration: user-guide/configuration.md
-        - Custom themes: user-guide/custom-themes.md
+        - Deploying Your Docs: user-guide/deploying-your-docs.md
+        - Custom Themes: user-guide/custom-themes.md
         - Plugins: user-guide/plugins.md
     - About:
         - Release Notes: about/release-notes.md
         - Contributing: about/contributing.md
         - License: about/license.md
+
+extra_css:
+    - css/extra.css
+
+plugins:
+    - search
 
 google_analytics: ['UA-10006093-5', 'readthedocs.sheets.ch']

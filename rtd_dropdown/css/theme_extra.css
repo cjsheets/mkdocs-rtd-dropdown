@@ -194,7 +194,7 @@ td, th {
 
 /*
  * readthedocs-nested overrides
- */
+ *
 
 .wy-menu-vertical li ul {
   display: none
@@ -214,4 +214,4 @@ td, th {
     margin: 0px 0px 0px -14px;
     overflow-x: hidden;
 
-}
+}*/
