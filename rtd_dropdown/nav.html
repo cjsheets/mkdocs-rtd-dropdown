@@ -1,63 +1,22 @@
-{#| Loop over the major, root-level groups |#}
-{% for nav_item in nav %}
+{%- if nav_item.is_section %}
+    <span class="caption-text">{{ nav_item.title }}</span>
+{%- else %}
+    <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+{%- endif %}
 
-  {#| Determine the full path of the root-level link |#}
-  {%- set nav_item_children = nav_item.children %}
-  {%- set nav_ns = namespace(url_list=false) %}
-
-  {%- if nav_item.children is defined %}
-    {% for _ in range(1, 6) %}
-      {%- if nav_item_children is defined %}
-        {%- if nav_item_children[0].input_path is defined %}
-          {%- set nav_ns.url_list = nav_item_children[0].input_path.split('.') %}
-        {%- else %}
-          {%- set nav_item_children = nav_item_children[0].children %}
+{%- if nav_item == page or nav_item.children %}
+    <ul class="subnav">
+        {%- if nav_item == page %}
+            {% include 'toc.html' %}
         {%- endif %}
-      {%- endif %}
-    {% endfor %}
-    {%- if nav_ns.url_list %}
-      {%- set fileName = nav_ns.url_list.pop() %}
-      {%- set child_url = '.'.join(nav_ns.url_list) %}
-    {%- endif %}
-  {%- endif %}
-
-  {%- if child_url is not defined %}
-    {#| There are no children, only a root-level item |#}
-    {%- set child_url = nav_item.abs_url %}
-  {%- endif %}
-
-{%- set navlevel = 0 %}
-{% if nav_item.children %}
-  <p class="caption">{{ nav_item.title }}</p>
-{% endif %}
-
-<ul class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">
-  {% if nav_item.children %}
-    {% for nav_item in nav_item.children %}
-      {% include "nav-item.html" %}
-    {% endfor %}
-  {%- else %}
-    {#| Rendering toc directly for root-level items prevents double-title |#}
-    {% if nav_item.active %}
-      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
-        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
-        {%- set navlevel = navlevel + 1 %}
-        {% include "toc.html" %}
-      </li>
-    {%- else %}
-      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
-        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
-      </li>
-    {%- endif %}
-  {%- endif %}
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-{% endfor %}
+        {%- if nav_item.children %}
+            {%- set navlevel = navlevel + 1%}
+            {%- for nav_item in nav_item.children %}
+                <li class="{% if navlevel > 2 %}toctree-l{{ navlevel }}{% endif %}{% if nav_item.active%} current{%endif%}">
+                    {% include 'nav.html' %}
+                </li>
+            {%- endfor %}
+            {%- set navlevel = navlevel - 1%}
+        {%- endif %}
+    </ul>
+{%- endif %}

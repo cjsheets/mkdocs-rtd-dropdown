@@ -44,6 +44,16 @@
 }
 
 /*
+ * readthedocs theme hides nav items when the window height is
+ * too small to contain them.
+ *
+ * https://github.com/mkdocs/mkdocs/issues/#348
+ */
+.wy-menu-vertical ul {
+  margin-bottom: 2em;
+}
+
+/*
  * Wrap inline code samples otherwise they shoot of the side and
  * can't be read at all.
  *
@@ -51,7 +61,7 @@
  * https://github.com/mkdocs/mkdocs/issues/233
  * https://github.com/mkdocs/mkdocs/issues/834
  */
-code, .rst-content code {
+code {
     white-space: pre-wrap;
     word-wrap: break-word;
     padding: 2px 5px;
@@ -65,7 +75,7 @@ code, .rst-content code {
  * https://github.com/mkdocs/mkdocs/issues/834
  * https://github.com/mkdocs/mkdocs/issues/233
  */
-pre code, .rst-content pre code {
+pre code {
   white-space: pre;
   word-wrap: normal;
   display: block;
