@@ -1,22 +1,36 @@
 {%- if nav_item.is_section %}
+  {# Sections represent top level folders #}
+  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active and not nav_item.children %} current{%endif%}">
     <span class="caption-text">{{ nav_item.title }}</span>
+  </li>
+
 {%- else %}
+  {# MkDocs provides nested children for the nav_item == page  #}
+  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+    {%- if nav_item == page %}
+      <span class="toctree-expand"></span>
+    {% endif %}
     <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+  </li>
 {%- endif %}
 
 {%- if nav_item == page or nav_item.children %}
-    <ul class="subnav">
-        {%- if nav_item == page %}
-            {% include 'toc.html' %}
-        {%- endif %}
-        {%- if nav_item.children %}
-            {%- set navlevel = navlevel + 1%}
-            {%- for nav_item in nav_item.children %}
-                <li class="{% if navlevel > 2 %}toctree-l{{ navlevel }}{% endif %}{% if nav_item.active%} current{%endif%}">
-                    {% include 'nav.html' %}
-                </li>
-            {%- endfor %}
-            {%- set navlevel = navlevel - 1%}
-        {%- endif %}
+  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active and not nav_item.children %} current{%endif%}">
+      {%- if nav_item == page %}
+        {% for toc_item in page.toc %}
+          {{ ("nav_item == page: " + toc_item.title) | debug }}
+          {% include 'toc.html' %}
+        {%- endfor %}
+      {%- endif %}
+      {%- if nav_item.children %}
+    <ul class="navtree subnav-l{{ navlevel }}">
+        {%- set navlevel = navlevel + 1%}
+        {%- for nav_item in nav_item.children %}
+          {{ ("nav_item child: " + nav_item.title) | debug }}
+          {% include 'nav.html' %}
+        {% endfor %}
+        {%- set navlevel = navlevel - 1%}
     </ul>
+      {%- endif %}
+  </li>
 {%- endif %}

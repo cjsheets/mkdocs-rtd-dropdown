@@ -13,10 +13,6 @@
     color: #838383;
 }
 
-.wy-menu-vertical .subnav a {
-    padding: 0.4045em 2.427em;
-}
-
 /*
  * Long navigations run off the bottom of the screen as the nav
  * area doesn't scroll.
@@ -149,17 +145,6 @@ form .search-query {
     display: inherit;
 }
 
-/* .wy-menu-vertical li ul.subnav ul.subnav{
-    padding-left: 1em;
-} */
-
-.wy-menu-vertical .subnav li.current > a {
-    padding-left: 2.42em;
-}
-.wy-menu-vertical .subnav li.current > ul li a {
-    padding-left: 3.23em;
-}
-
 /*
  * Improve inline code blocks within admonitions.
  *
@@ -195,23 +180,69 @@ td, th {
 /*
  * readthedocs-nested overrides
  *
+*/
 
-.wy-menu-vertical li ul {
+/* .wy-menu-vertical li ul {
   display: none
-}
+} */
 
-.wy-menu-vertical li.current ul {
+/* .wy-menu-vertical li.current ul {
     display: block;
+} */
+
+/*  
+ * Pallet 227 - 201 - 175
+ * e3e3e3 c9c9c9 afafaf
+ */
+
+.wy-menu-vertical .tocbase li a {
+    color: #808080;
+    font-size: 14px;
+    font-weight: 400;
 }
 
-.toc-item, .toc-item:hover {
+.wy-menu-vertical .tocbase li.toctree-l2,
+.wy-menu-vertical .tocbase li.toctree-l3,
+.wy-menu-vertical .tocbase li.toctree-l4,
+.wy-menu-vertical .tocbase li.toctree-l5 {
+    position: relative;
+}
+
+.wy-menu-vertical .tocbase span.toctree-expand {
+    z-index: 1000;
+    position: absolute;
+    top: 5px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px !important;
+    font-weight: 400;
+    color: #333333;
+}
+
+/* Selected top-level heading */
+.wy-menu-vertical .navtree li.toctree-l2.current {
+    background: #fcfcfc;
+}
+.wy-menu-vertical .navtree li.toctree-l2.current > a,
+.wy-menu-vertical .navtree li.toctree-l2.current > span {
+    color: #404040 !important;
+}
+
+.wy-menu-vertical .navtree li.toctree-l2.current > a {
+    background: #fcfcfc;
+    padding: 6px 22px;
+    font-weight: bold;
+}
+.wy-menu-vertical .tocbase li.toctree-l2.current > span.toctree-expand {
+    left: 6px;
+}
+
+/* Level 2 heading */
+
+
+.wy-menu-vertical .tocbase ul.subnav-l2 {
+    color: #808080;
     background: #c9c9c9;
 }
 
-.wy-menu-vertical li span.toctree-expand {
-    font-weight: 400;
-    padding: 1px;
-    margin: 0px 0px 0px -14px;
-    overflow-x: hidden;
 
-}*/

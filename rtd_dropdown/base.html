@@ -18,6 +18,7 @@
 
   {%- block styles %}
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="{{ 'css/theme.css'|url }}" type="text/css" />
   <link rel="stylesheet" href="{{ 'css/theme_extra.css'|url }}" type="text/css" />
@@ -82,15 +83,13 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        {%- block site_nav %}
-	<ul class="current">
-	  {% set navlevel = 1 %}
-          {% for nav_item in nav %}
-            <li class="toctree-l{{ navlevel }}{% if nav_item.active and not nav_item.children %} current{%endif%}">
-		{% include 'nav.html' %}
-	    </li>
-          {% endfor %}
-        </ul>
+  {%- block site_nav %}
+	<ul class="tocbase current">
+    {% set navlevel = 1 %}
+    {% for nav_item in nav %}
+      {% include 'nav.html' %}
+    {% endfor %}
+  </ul>
     {%- endblock %}
       </div>
       &nbsp;
