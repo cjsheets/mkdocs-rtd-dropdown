@@ -1,4 +1,4 @@
-# MkDocs Plugins
+# Plugins
 
 A Guide to installing, using and creating MkDocs Plugins
 
@@ -59,7 +59,7 @@ points to it.
 
 ### BasePlugin
 
-A subclass of `mkdocs.pluhgins.BasePlugin` should define the behavior of the plugin.
+A subclass of `mkdocs.plugins.BasePlugin` should define the behavior of the plugin.
 The class generally consists of actions to perform on specific events in the build
 process as well as a configuration scheme for the plugin.
 
@@ -67,19 +67,46 @@ All `BasePlugin` subclasses contain the following attributes:
 
 #### config_scheme
 
-:   A tuple of configuration validation class instances (to be defined in a subclass).
+:   A tuple of configuration validation instances. Each item must consist of a
+    two item tuple in which the first item is the string name of the
+    configuration option and the second item is an instance of
+    `mkdocs.config.config_options.BaseConfigOption` or any of its subclasses.
+
+    For example, the following `config_scheme` defines three configuration options: `foo`, which accepts a string; `bar`, which accepts an integer; and `baz`, which accepts a boolean value.
+
+        class MyPlugin(mkdocs.plugins.BasePlugin):
+            config_scheme = (
+                ('foo', mkdocs.config.config_options.Type(mkdocs.utils.string_types, default='a default value')),
+                ('bar', mkdocs.config.config_options.Type(int, default=0)),
+                ('baz', mkdocs.config.config_options.Type(bool, default=True))
+            )
+
+    When the user's configuration is loaded, the above scheme will be used to
+    validate the configuration and fill in any defaults for settings not
+    provided by the user. The validation classes may be any of the classes
+    provided in `mkdocs.config.config_options` or a third party subclass defined
+    in the plugin.
+
+    Any settings provided by the user which fail validation or are not defined
+    in the `config_scheme` will raise a `mkdocs.config.base.ValidationError`.
 
 #### config
 
-:   A dictionary of configuration options for the plugin which is populated by the
-    `load_config` method.
+:   A dictionary of configuration options for the plugin, which is populated by
+    the `load_config` method after configuration validation has completed. Use
+    this attribute to access options provided by the user.
+
+        def on_pre_build(self, config):
+            if self.config['bool_option']:
+                # implement "bool_option" functionality here...
 
 All `BasePlugin` subclasses contain the following method(s):
 
 #### load_config(options)
 
-:   Loads configuration from a dictionary of options. Returns a tuple of `(errors,
-    warnings)`.
+:   Loads configuration from a dictionary of options. Returns a tuple of
+    `(errors, warnings)`. This method is called by MkDocs during configuration
+    validation and should not need to be called by the plugin.
 
 #### on_&lt;event_name&gt;()
 
@@ -122,7 +149,7 @@ entire site.
 :   The `serve` event is only called when the `serve` command is used during
     development. It is passed the `Server` instance which can be modified before
     it is activated. For example, additional files or directories could be added
-    to the list of "watched" filed for auto-reloading.
+    to the list of "watched" files for auto-reloading.
 
     Parameters:
     : __server:__ `livereload.Server` instance
@@ -151,14 +178,30 @@ entire site.
     Parameters:
     : __config:__ global configuration object
 
+##### on_files
+
+:   The `files` event is called after the files collection is populated from the
+    `docs_dir`. Use this event to add, remove, or alter files in the
+    collection. Note that Page objects have not yet been associated with the
+    file objects in the collection. Use [Page Events] to manipulate page
+    specific data.
+
+    Parameters:
+    : __files:__ global files collection
+    : __config:__ global configuration object
+
+    Returns:
+    : global files collection
+
 ##### on_nav
 
 :   The `nav` event is called after the site navigation is created and can
     be used to alter the site navigation.
 
     Parameters:
-    : __site_navigation:__ global navigation object
+    : __nav:__ global navigation object
     : __config:__ global configuration object
+    : __files:__ global files collection
 
     Returns:
     : global navigation object
@@ -236,8 +279,8 @@ called after the [env] event and before any [page events].
 #### Page Events
 
 Page events are called once for each Markdown page included in the site. All
-page events are called after the [post_template] event and before the [post_build]
-event.
+page events are called after the [post_template] event and before the
+[post_build] event.
 
 ##### on_pre_page
 

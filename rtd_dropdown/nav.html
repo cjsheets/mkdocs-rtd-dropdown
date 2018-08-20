@@ -1,63 +1,46 @@
-{#| Loop over the major, root-level groups |#}
-{% for nav_item in nav %}
+{# Root level label for a group of root level children (folder > files) #}
+{%- if nav_item.is_section %}
+  <li class="navtree toctree-l{{ navlevel }} label">
+    <p class="caption">{{ nav_item.title }}</p>
+  </li>
+{%- endif %}
 
-  {#| Determine the full path of the root-level link |#}
-  {%- set nav_item_children = nav_item.children %}
-  {%- set nav_ns = namespace(url_list=false) %}
+{# Root level links to pages that are not currently active #}
+{%- if nav_item != page and not nav_item.children %}
+  <li class="navtree toctree-l{{ navlevel }} inactive">
+    <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+  </li>
+{%- endif %}
 
-  {%- if nav_item.children is defined %}
-    {% for _ in range(1, 6) %}
-      {%- if nav_item_children is defined %}
-        {%- if nav_item_children[0].input_path is defined %}
-          {%- set nav_ns.url_list = nav_item_children[0].input_path.split('.') %}
-        {%- else %}
-          {%- set nav_item_children = nav_item_children[0].children %}
+{%- if nav_item == page or nav_item.children %}
+  {# Root level pages #}
+  {%- if nav_item == page %}
+    {# Label for currently active root level page #}
+    <li class="navtree toctree-l{{ navlevel }} page current">
+      <a class="current" href="{{ nav_item.url|url }}">
+        {{ nav_item.title }}
+        {%- if nav_item.children or navlevel == 2 %}
+          <span class="toctree-expand"></span>
         {%- endif %}
-      {%- endif %}
-    {% endfor %}
-    {%- if nav_ns.url_list %}
-      {%- set fileName = nav_ns.url_list.pop() %}
-      {%- set child_url = '.'.join(nav_ns.url_list) %}
-    {%- endif %}
+      </a>
+    </li>
+    {% for toc_item in page.toc %}
+      {%- set toc_first_loop = loop.first %}
+      {% include 'toc.html' %}
+    {%- endfor %}
   {%- endif %}
 
-  {%- if child_url is not defined %}
-    {#| There are no children, only a root-level item |#}
-    {%- set child_url = nav_item.abs_url %}
+  {# Group of pages in a root level folder #}
+  {%- if nav_item.children %}
+    <li class="navtree toctree-l{{ navlevel }} group">
+      <ul class="navtree subnav-l{{ navlevel }} current">
+        {%- set navlevel = navlevel + 1%}
+        {%- for nav_item in nav_item.children %}
+          {{ ("nav_item child: " + nav_item.title) | debug }}
+          {% include 'nav.html' %}
+        {% endfor %}
+        {%- set navlevel = navlevel - 1%}
+      </ul>
+    </li>
   {%- endif %}
-
-{%- set navlevel = 0 %}
-{% if nav_item.children %}
-  <p class="caption">{{ nav_item.title }}</p>
-{% endif %}
-
-<ul class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">
-  {% if nav_item.children %}
-    {% for nav_item in nav_item.children %}
-      {% include "nav-item.html" %}
-    {% endfor %}
-  {%- else %}
-    {#| Rendering toc directly for root-level items prevents double-title |#}
-    {% if nav_item.active %}
-      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
-        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
-        {%- set navlevel = navlevel + 1 %}
-        {% include "toc.html" %}
-      </li>
-    {%- else %}
-      <li class="{% if nav_item.active%}current{%endif%} toctree-l1">
-        <a class="{% if nav_item.active%}current{%endif%}" href="{{ child_url }}">{{ nav_item.title }}</a>
-      </li>
-    {%- endif %}
-  {%- endif %}
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-{% endfor %}
+{%- endif %}

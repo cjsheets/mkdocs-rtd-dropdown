@@ -20,41 +20,48 @@ and their usage.
 ## Creating a custom theme
 
 The bare minimum required for a custom theme is a `main.html` [Jinja2 template]
-file. This should be placed in a directory which will be the `theme_dir` and it
-should be created next to the `mkdocs.yml` configuration file. Within
-`mkdocs.yml`, specify the theme `custom_dir` option and set it to the name of
-the directory containing `main.html`. For example, given this example project
-layout:
+file which is placed in a directory that is *not* a child of the [docs_dir].
+Within `mkdocs.yml`, set the theme.[custom_dir] option to the path of the
+directory containing `main.html`. The path should be relative to the
+configuration file. For example, given this example project layout:
 
-    mkdocs.yml
-    docs/
-        index.md
-        about.md
-    custom_theme/
-        main.html
-        ...
+```no-highlight
+mkdocs.yml
+docs/
+    index.md
+    about.md
+custom_theme/
+    main.html
+    ...
+```
 
-You would include the following settings in `mkdocs.yml` to use the custom theme
+... you would include the following settings in `mkdocs.yml` to use the custom theme
 directory:
 
-    theme:
-        name: null
-        custom_dir: 'custom_theme'
+```yaml
+theme:
+    name: null
+    custom_dir: 'custom_theme/'
+```
 
 !!! Note
 
-    Generally, when building your own custom theme, the theme `name`
-    configuration setting would be set to `null`. However, if used in
-    combination with the `custom_dir` configuration value a custom theme can be
-    used to replace only specific parts of a built-in theme. For example, with
-    the above layout and if you set `name: "mkdocs"` then the `main.html` file
-    in the `custom_dir` would replace that in the theme but otherwise the
-    `mkdocs` theme would remain the same. This is useful if you want to make
+    Generally, when building your own custom theme, the theme.[name]
+    configuration setting would be set to `null`. However, if the
+    theme.[custom_dir] configuration value is used in combination with an
+    existing theme, the theme.[custom_dir] can be used to replace only specific
+    parts of a built-in theme. For example, with the above layout and if you set
+    `name: "mkdocs"` then the `main.html` file in the theme.[custom_dir] would
+    replace the file of the same name in the `mkdocs` theme but otherwise the
+    `mkdocs` theme would remain unchanged. This is useful if you want to make
     small adjustments to an existing theme.
 
     For more specific information, see [styling your docs].
 
 [styling your docs]: ./styling-your-docs.md#using-the-theme-custom_dir
+[custom_dir]: ./configuration.md#custom_dir
+[name]: ./configuration.md#name
+[docs_dir]:./configuration.md#docs_dir
 
 ## Basic theme
 
@@ -119,6 +126,8 @@ used options include:
 * [config.site_url](./configuration.md#site_url)
 * [config.site_author](./configuration.md#site_author)
 * [config.site_description](./configuration.md#site_description)
+* [config.extra_javascript](./configuration.md#extra_javascript)
+* [config.extra_css](./configuration.md#extra_css)
 * [config.repo_url](./configuration.md#repo_url)
 * [config.repo_name](./configuration.md#repo_name)
 * [config.copyright](./configuration.md#copyright)
@@ -126,7 +135,29 @@ used options include:
 
 #### nav
 
-The `nav` variable is used to create the navigation for the documentation.
+The `nav` variable is used to create the navigation for the documentation. The
+`nav` object is an iterable of [navigation objects](#navigation-objects) as
+defined by the [nav] configuration setting.
+
+[nav]: configuration.md#nav
+
+In addition to the iterable of [navigation objects](#navigation-objects), the
+`nav` object contains the following attributes:
+
+##### nav.homepage
+
+The [page](#page) object for the homepage of the site.
+
+##### nav.pages
+
+A flat list of all [page](#page) objects contained in the navigation. This list
+is not necessarily a complete list of all site pages as it does not contain
+pages which are not included in the navigation. This list does match the list
+and order of pages used for all "next page" and "previous page" links. For a
+list of all pages, use the [pages](#pages) template variable.
+
+##### Nav Example
+
 Following is a basic usage example which outputs the first and second level
 navigation as a nested list.
 
@@ -138,15 +169,15 @@ navigation as a nested list.
             <li>{{ nav_item.title }}
                 <ul>
                 {% for nav_item in nav_item.children %}
-                    <li class="{% if nav_item.active%}current{%endif%}">
-                        <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                    <li class="{% if nav_item.active%}current{% endif %}">
+                        <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
                     </li>
                 {% endfor %}
                 </ul>
             </li>
         {% else %}
-            <li class="{% if nav_item.active%}current{%endif%}">
-                <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+            <li class="{% if nav_item.active%}current{% endif %}">
+                <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
             </li>
         {% endif %}
     {% endfor %}
@@ -154,35 +185,12 @@ navigation as a nested list.
 {% endif %}
 ```
 
-The `nav` object also contains a `homepage` object, which points to the `page`
-object of the homepage. For example, you may want to access `nav.homepage.url`.
-
 #### base_url
 
-The `base_url` provides a relative path to the root of the MkDocs project.
-This makes it easy to include links to static assets in your theme. For
-example, if your theme includes a `js` folder, to include `theme.js` from that
-folder on all pages you would do this:
-
-```django
-<script src="{{ base_url }}/js/theme.js"></script>
-```
-
-#### extra_css
-
-Contains a list of URLs to the style-sheets listed in the [extra_css]
-config setting. Unlike the config setting, which contains local paths, this
-variable contains absolute paths from the homepage.
-
-[extra_css]: configuration.md#extra_css
-
-#### extra_javascript
-
-Contains a list of URLs to the scripts listed in the [extra_javascript] config
-setting. Unlike the config setting, which contains local paths, this variable
-contains absolute paths from the homepage.
-
-[extra_javascript]: configuration.md#extra_javascript
+The `base_url` provides a relative path to the root of the MkDocs project. While
+this can be used directly by prepending it to a local relative URL, it is best
+to use the [url](#url) template filter, which is smarter about how it applies
+`base_url`.
 
 #### mkdocs_version
 
@@ -194,11 +202,23 @@ A Python datetime object that represents the date and time the documentation
 was built in UTC. This is useful for showing how recently the documentation
 was updated.
 
+#### pages
+
+A list of [page](#page) objects including *all* pages in the project. The list
+is a flat list with all pages sorted alphanumerically by directory and file
+name. Note that index pages sort to the top within a directory. This list can
+contain pages not included in the global [navigation](#nav) and may not match
+the order of pages within that navigation.
+
 #### page
 
 In templates which are not rendered from a Markdown source file, the `page`
 variable is `None`. In templates which are rendered from a Markdown source file,
-the `page` variable contains a page object with the following attributes:
+the `page` variable contains a `page` object. The same `page` objects are used
+as `page` [navigation objects](#navigation-objects) in the global
+[navigation](#nav) and in the [pages](#pages) template variable.
+
+All `page` objects contain the following attributes:
 
 ##### page.title
 
@@ -210,8 +230,16 @@ The rendered Markdown as HTML, this is the contents of the documentation.
 
 ##### page.toc
 
-An object representing the Table of contents for a page. Displaying the table
-of contents as a simple list can be achieved like this.
+An iterable object representing the Table of contents for a page. Each item in
+the `toc` is an `AnchorLink` which contains the following attributes:
+
+* `AnchorLink.title`: The text of the item.
+* `AnchorLink.url`: The hash fragment of a URL pointing to the item.
+* `AnchorLink.level`: The zero-based level of the item.
+* `AnchorLink.children`: An iterable of any child items.
+
+The following example would display the top two levels of the Table of Contents
+for a page.
 
 ```django
 <ul>
@@ -250,19 +278,44 @@ documentation page.
 {% endfor %}
 ```
 
+##### page.url
+
+The URL of the page relative to the MkDocs `site_dir`. It is expected that this
+be used with the [url](#url) filter to ensure the URL is relative to the current
+page.
+
+```django
+<a href="{{ page.url|url }}">{{ page.title }}</a>
+```
+
+[base_url]: #base_url
+
+##### page.abs_url
+
+The absolute URL of the page from the server root as determined by the value
+assigned to the [site_url] configuration setting. The value includes any
+subdirectory included in the `site_url`, but not the domain. [base_url] should
+not be used with this variable.
+
+For example, if `site_url: https://example.com/`, then the value of
+`page.abs_url` for the page `foo.md` would be `/foo/`. However, if
+`site_url: https://example.com/bar/`, then the value of `page.abs_url` for the
+page `foo.md` would be `/bar/foo/`.
+
+[site_url]: ./configuration.md#site_url
+
 ##### page.canonical_url
 
-The full, canonical URL to the current page. This includes the `site_url` from
-the configuration.
+The full, canonical URL to the current page as determined by the value assigned
+to the [site_url] configuration setting. The value includes the domain and any
+subdirectory included in the `site_url`. [base_url] should not be used with this
+variable.
 
 ##### page.edit_url
 
-The full URL to the input page in the source repository. Typically used to
-provide a link to edit the source page.
-
-##### page.url
-
-The URL to the current page not including the `site_url` from the configuration.
+The full URL to the source page in the source repository. Typically used to
+provide a link to edit the source page. [base_url] should not be used with this
+variable.
 
 ##### page.is_homepage
 
@@ -277,12 +330,143 @@ on the homepage:
 
 ##### page.previous_page
 
-The page object for the previous  page. The usage is the same as for
-`page`.
+The page object for the previous page or `None`. The value will be `None` if the
+current page is the first item in the site navigation or if the current page is
+not included in the navigation at all. When the value is a page object, the
+usage is the same as for `page`.
 
 ##### page.next_page
 
-The page object for the next page.The usage is the same as for `page`.
+The page object for the next page or `None`. The value will be `None` if the
+current page is the last item in the site navigation or if the current page is
+not included in the navigation at all. When the value is a page object, the
+usage is the same as for `page`.
+
+##### page.parent
+
+The immediate parent of the page in the [site navigation](#nav). `None` if the
+page is at the top level.
+
+##### page.children
+
+Pages do not contain children and the attribute is always `None`.
+
+##### page.active
+
+When `True`, indicates that this page is the currently viewed page. Defaults
+to `False`.
+
+##### page.is_section
+
+Indicates that the navigation object is a "section" object. Always `False` for
+page objects.
+
+##### page.is_page
+
+Indicates that the navigation object is a "page" object. Always `True` for
+page objects.
+
+##### page.is_link
+
+Indicates that the navigation object is a "link" object. Always `False` for
+page objects.
+
+### Navigation Objects
+
+Navigation objects contained in the [nav](#nav) template variable may be one of
+[section](#section) objects, [page](#page) objects, and [link](#link) objects.
+While section objects may contain nested navigation objects, pages and links do
+not.
+
+Page objects are the full page object as used for the current [page](#page) with
+all of the same attributes available. Section and Link objects contain a subset
+of those attributes as defined below:
+
+#### Section
+
+A `section` navigation object defines a named section in the navigation and
+contains a list of child navigation objects. Note that sections do not contain
+URLs and are not links of any kind. However, by default, MkDocs sorts index
+pages to the top and the first child might be used as the URL for a section if a
+theme choses to do so.
+
+ The following attributes are available on `section` objects:
+
+##### section.title
+
+The title of the section.
+
+##### section.parent
+
+The immediate parent of the section or `None` if the section is at the top
+level.
+
+##### section.children
+
+An iterable of all child navigation objects. Children may include nested
+sections, pages and links.
+
+##### section.active
+
+When `True`, indicates that a child page of this section is the current page and
+can be used to highlight the section as the currently viewed section. Defaults
+to `False`.
+
+##### section.is_section
+
+Indicates that the navigation object is a "section" object. Always `True` for
+section objects.
+
+##### section.is_page
+
+Indicates that the navigation object is a "page" object. Always `False` for
+section objects.
+
+##### section.is_link
+
+Indicates that the navigation object is a "link" object. Always `False` for
+section objects.
+
+#### Link
+
+A `link` navigation object contains a link which does not point to an internal
+MkDocs page. The following attributes are available on `link` objects:
+
+##### link.title
+
+The title of the link. This would generally be used as the label of the link.
+
+##### link.url
+
+The URL that the link points to. The URL should always be an absolute URLs and
+should not need to have `base_url` prepened.
+
+##### link.parent
+
+The immediate parent of the link. `None` if the link is at the top level.
+
+##### link.children
+
+Links do not contain children and the attribute is always `None`.
+
+##### link.active
+
+External links cannot be "active" and the attribute is always `False`.
+
+##### link.is_section
+
+Indicates that the navigation object is a "section" object. Always `False` for
+link objects.
+
+##### link.is_page
+
+Indicates that the navigation object is a "page" object. Always `False` for
+link objects.
+
+##### link.is_link
+
+Indicates that the navigation object is a "link" object. Always `True` for
+link objects.
 
 ### Extra Context
 
@@ -300,7 +484,7 @@ extra:
     links:
         - https://github.com/mkdocs
         - https://docs.readthedocs.org/en/latest/builds.html#mkdocs
-        - http://www.mkdocs.org/
+        - https://www.mkdocs.org/
 ```
 
 And then displayed with this HTML in the custom theme.
@@ -317,14 +501,40 @@ And then displayed with this HTML in the custom theme.
 {% endif %}
 ```
 
+## Template Filters
+
+In addition to Jinja's default filters, the following custom filters are
+available to use in MkDocs templates:
+
+### url
+
+Normalizes a URL. Absolute URLs are passed through unaltered. If the URL is
+relative and the template context includes a page object, then the URL is
+returned relative to the page object. Otherwise, the URL is returned with
+[base_url](#base_url) prepended.
+
+```django
+<a href="{{ page.url|url }}">{{ page.title }}</a>
+```
+
+### tojson
+
+Safety convert a Python object to a value in a JavaScript script.
+
+```django
+<script>
+    var mkdocs_page_name = {{ page.title|tojson|safe }};
+</script>
+```
+
 ## Search and themes
 
-As of MkDocs `0.17` client side search support has been added to MkDocs via the
-`search` plugin. A theme needs to provide a few things for the plugin to work
-with the theme.
+As of MkDocs version *0.17* client side search support has been added to MkDocs
+via the `search` plugin. A theme needs to provide a few things for the plugin to
+work with the theme.
 
 While the `search` plugin is activated by default, users can disable the plugin
-and themes should acount for this. It is recomended that theme templates wrap
+and themes should account for this. It is recommended that theme templates wrap
 search specific markup with a check for the plugin:
 
 ```django
@@ -339,8 +549,36 @@ The theme would need to implement its own search functionality client-side.
 However, with a few settings and the necessary templates, the plugin can provide
 a complete functioning client-side search tool based on [lunr.js].
 
-The following options can be set in the [theme's configuration file],
-`mkdocs_theme.yml`:
+The following HTML needs to be added to the theme so that the provided
+JavaScript is able to properly load the search scripts and make relative links
+to the search results from the current page.
+
+```django
+<script>var base_url = '{{ base_url }}';</script>
+```
+
+With properly configured settings, the following HTML in a template  will add a
+full search implementation to your theme.
+
+```django
+<h1 id="search">Search Results</h1>
+
+<form action="search.html">
+  <input name="q" id="mkdocs-search-query" type="text" >
+</form>
+
+<div id="mkdocs-search-results">
+  Sorry, page not found.
+</div>
+```
+
+The JavaScript in the plugin works by looking for the specific ID's used in the
+above HTML. The form input for the user to type the search query must be
+identified with `id="mkdocs-search-query"` and the div where the results will be
+placed must be identified with `id="mkdocs-search-results"`.
+
+The plugin supports the following options being set in the [theme's
+configuration file], `mkdocs_theme.yml`:
 
 ### include_search_page
 
@@ -360,54 +598,47 @@ example, the `mkdocs` theme displays results on any page via a modal.
 Determines whether the search plugin should only generate a search index or a
 complete search solution.
 
-When `search_index_only` is set to `true` or not defined, the search plugin
-makes no modifications to the Jinja environment. A complete solution using the
-provided index file is the responsability of the theme.
-
 When `search_index_only` is set to `false`, then the search plugin modifies the
-Jinja environment by adding its own `temaplates` directory (with a lower
+Jinja environment by adding its own `templates` directory (with a lower
 precedence than the theme) and adds its scripts to the `extra_javascript` config
 setting.
 
-The following HTML needs to be added to the theme so that the provided
-JavaScript is able to properly load Lunr.js and make relative links to the
-search results from the current page.
+When `search_index_only` is set to `true` or not defined, the search plugin
+makes no modifications to the Jinja environment. A complete solution using the
+provided index file is the responsibility of the theme.
 
-```django
-<script>var base_url = '{{ base_url }}';</script>
+The search index is written to a JSON file at `search/search_index.json` in the
+[site_dir]. The JSON object contained within the file may contain up to three
+objects.
+
+```json
+{
+    config: {...},
+    data: [...],
+    index: {...}
+}
 ```
 
-!!! note
+If present, the `config` object contains the key/value pairs of config options
+defined for the plugin in the user's `mkdocs.yml` config file under
+`plugings.search`. The `config` object was new in MkDocs version *1.0*.
 
-    The provided JavaScript will download the search index. For larger
-    documentation projects this can be a heavy operation. In those cases, it
-    is suggested that you either use `search_index_only: true` to only include
-    search on one page or load the JavaScript on an event like a form submit.
+The `data` object contains a list of document objects. Each document object is
+made up of a `location` (URL), a `title`, and `text` which can be used to create
+a search index and/or display search results.
 
-The following HTML in a `search/search.html` template will add a full search
-implementation to your theme.
-
-```django
-<h1 id="search">Search Results</h1>
-
-<form action="search.html">
-  <input name="q" id="mkdocs-search-query" type="text" >
-</form>
-
-<div id="mkdocs-search-results">
-  Sorry, page not found.
-</div>
-```
-
-The JavaScript in the plugin works by looking for the specific ID's used in the
-above HTML. The input for the user to type the search query must have the ID
-`mkdocs-search-query` and `mkdocs-search-results` is the div where the results
-will be placed.
+If present, the `index` object contains a pre-built index which offers
+performance improvements for larger sites. Note that the pre-built index is only
+created if the user explicitly enables the [prebuild_index] config option.
+Themes should expect the index to not be present, but can choose to use the
+index when it is available. The `index` object was new in MkDocs version *1.0*.
 
 [Jinja2 template]: http://jinja.pocoo.org/docs/dev/
 [built-in themes]: https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes
 [theme's configuration file]: #theme-configuration
-[lunr.js]: http://lunrjs.com/
+[lunr.js]: https://lunrjs.com/
+[site_dir]: configuration.md#site_dir
+[prebuild_index]: configuration.md#prebuild_index
 
 ## Packaging Themes
 
@@ -429,8 +660,8 @@ Bootswatch theme].
     their needs.
 
 [Python packaging]: https://packaging.python.org/en/latest/
-[MkDocs Bootstrap theme]: http://mkdocs.github.io/mkdocs-bootstrap/
-[MkDocs Bootswatch theme]: http://mkdocs.github.io/mkdocs-bootswatch/
+[MkDocs Bootstrap theme]: https://mkdocs.github.io/mkdocs-bootstrap/
+[MkDocs Bootswatch theme]: https://mkdocs.github.io/mkdocs-bootswatch/
 
 ### Package Layout
 
@@ -579,4 +810,4 @@ For a much more detailed guide, see the official Python packaging
 documentation for [Packaging and Distributing Projects].
 
 [Packaging and Distributing Projects]: https://packaging.python.org/en/latest/distributing/
-[theme]: ./configuration/#theme
+[theme]: ./configuration.md#theme

@@ -50,7 +50,7 @@ use your package manager to install "Python" and "pip". Then you can use pip to
 [install MkDocs](#installing-mkdocs).
 
 [apt-get]: https://help.ubuntu.com/community/AptGet/Howto
-[homebrew]: http://brew.sh/
+[homebrew]: https://brew.sh/
 [dnf]: http://dnf.readthedocs.io/en/latest/index.html
 [yum]: http://yum.baseurl.org/
 [chocolatey]: https://chocolatey.org/
@@ -68,7 +68,7 @@ $ pip --version
 pip 1.5.2
 ```
 
-MkDocs supports Python versions 2.7, 3.3, 3.4, 3.5 and pypy.
+MkDocs supports Python versions 2.7, 3.4, 3.5, 3.6, 3.7 and pypy.
 
 #### Installing Python
 
@@ -117,6 +117,19 @@ You should now have the `mkdocs` command installed on your system. Run `mkdocs
 $ mkdocs --version
 mkdocs, version 0.15.3
 ```
+
+!!! Note
+    If you would like manpages installed for MkDocs, the [click-man] tool can
+    generate and install them for you. Simply run the following two commands:
+
+        pip install click-man
+        click-man --target path/to/man/pages mkdocs
+
+    See the [click-man documentation] for an explaination of why manpages are
+    not automaticaly generated and installed by pip.
+
+[click-man]: https://github.com/click-contrib/click-man
+[click-man documentation]: https://github.com/click-contrib/click-man#automatic-man-page-installation-with-setuptools-and-pip
 
 !!! Note
     If you are using Windows, some of the above commands may not work
@@ -335,7 +348,7 @@ the MkDocs IRC channel `#mkdocs` on freenode.
 [readthedocs]: user-guide/styling-your-docs/#readthedocs
 [MkDocs wiki]: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes
 [build your own]: user-guide/custom-themes/
-[Amazon S3]: http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+[Amazon S3]: https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
 [get-pip.py]: https://bootstrap.pypa.io/get-pip.py
 [pages]: user-guide/configuration/#pages
 [discussion group]: https://groups.google.com/forum/#!forum/mkdocs

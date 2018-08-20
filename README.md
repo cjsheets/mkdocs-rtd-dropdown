@@ -28,12 +28,24 @@ theme:
 
 
 How to use
+--------
+
+See the supplied `docs` folder as an example. The main limitation is each file name needs to be the same as the
+first heading in each file. This seems to be a fairly common configuration.
+
+MkDocs added navigation improvemetns which allows this theme to support more than 2 collapsing levels.
+
+The stylesheets are currently only configured for 4 levels. Please reaise an issue if you need style support for more than that.
+
+
+
+How to use (Old Version, pre-v1.0)
 ----------
 
 Similar to [readthedocs.io](https://docs.readthedocs.io/en/latest/), this theme is built
 assuming a flat file structure.
 
-### File Structure
+### File Structure (Old Version, pre-v1.0)
 
 Right now, your documentation can only use the first two file levels. I'm working on 
 adding support for a 3rd level. 
@@ -84,9 +96,6 @@ For further discussion, see [this issue](https://github.com/mkdocs/mkdocs/issues
 
 Development
 -----------
-
-This theme is stable but early in development. There may be changes to how folder structures
-are parsed into subdirectories in future releases.
 
 If you discover bugs or areas for improvement please feel free to submit issues or PRs.
 
