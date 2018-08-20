@@ -50,27 +50,29 @@ $( document ).ready(function() {
      */
     toggleCurrent = function (elem) {
         var parent_li = elem.closest('li');
-        parent_li.siblings('li.current').removeClass('current');
-        parent_li.siblings().find('li.current').removeClass('current');
-        parent_li.find('> ul li.current').removeClass('current');
-        parent_li.toggleClass('current');
+        var menu_li = parent_li.next();
+        var menu_ul = menu_li.children('ul');
+        parent_li.siblings('li').not(menu_li).removeClass('current').removeClass('with-children');
+        parent_li.siblings().find('> ul').not(menu_ul).removeClass('current').addClass('toc-hidden');
+        parent_li.toggleClass('current').toggleClass('with-children');
+        menu_li.toggleClass('current');
+        menu_ul.toggleClass('current').toggleClass('toc-hidden');
     }
 
     // https://github.com/rtfd/sphinx_rtd_theme/blob/master/js/theme.js
-    // $('.tocbase').find('a').each(function () {
-    //     console.log('add button');
-    //     var link = $(this);
-    //     expand = $('<span class="toctree-expand"></span>');
-    //     expand.on('click', function (ev) {
-    //         toggleCurrent(link);
-    //         ev.stopPropagation();
-    //         return false;
-    //     });
-    //     link.on('click', function (ev) {
-    //         toggleCurrent(link);
-    //     });
-    //     link.prepend(expand);
-    // });
+    $('.tocbase').find('.toctree-expand').each(function () {
+        var link = $(this).parent();
+        $(this).on('click', function (ev) {
+            console.log('click expand');
+            toggleCurrent(link);
+            ev.stopPropagation();
+            return false;
+        });
+        link.on('click', function (ev) {
+            console.log('click link');
+            toggleCurrent(link);
+        });
+    });
 });
 
 window.SphinxRtdTheme = (function (jquery) {
