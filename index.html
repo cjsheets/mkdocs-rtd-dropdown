@@ -7,31 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Updated version of MkDocs ReadTheDocs theme">
   <meta name="author" content="Chad Sheets">
-  <link rel="shortcut icon" href="./img/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.ico">
   <title>MkDocs - ReadTheDocs Dropdown</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "MkDocs";
     var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-10006093-5', 'readthedocs.sheets.ch');
       ga('send', 'pageview');
@@ -49,298 +53,283 @@
         <a href="." class="icon icon-home"> ReadTheDocs Dropdown</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="tocbase current">
+    
+    
+      
       
 
 
   
     
-
-
-<ul class="current" href="/">
-  
-    
-    
-      <li class="current toctree-l1">
-        <a class="current" href="/">MkDocs</a>
-        
-  
-  
-  <ul class="current subnav">
+    <li class="navtree toctree-l1 page current">
+      <a class="current" href=".">
+        MkDocs
+      </a>
+    </li>
     
       
 
-  
-  
-  
 
 
-  <li class="current toctree-l2">
+  <li class="toctree-l1 current">
+    <ul class="subnav-l1 current">
     
-    <ul class="current subnav">
       
-        
+          
 
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#overview" title="MkDocs">Overview</a>
+  <li class="toctree-l2 current with-children">
+    <a href="#overview">
+      Overview
+      <span class="toctree-expand"></span>
+    </a>
   </li>
 
+
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
       
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#installation" title="MkDocs">Installation</a>
-  </li>
-
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#host-anywhere">Host anywhere</a>
+        </li>
+    
       
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#getting-started" title="MkDocs">Getting Started</a>
-  </li>
-
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#great-themes-available">Great themes available</a>
+        </li>
+    
       
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#adding-pages" title="MkDocs">Adding pages</a>
-  </li>
-
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#preview-your-site-as-you-work">Preview your site as you work</a>
+        </li>
+    
       
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#theming-our-documentation" title="MkDocs">Theming our documentation</a>
-  </li>
-
-      
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#changing-the-favicon-icon" title="MkDocs">Changing the Favicon Icon</a>
-  </li>
-
-      
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#building-the-site" title="MkDocs">Building the site</a>
-  </li>
-
-      
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#other-commands-and-options" title="MkDocs">Other Commands and Options</a>
-  </li>
-
-      
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#deploying" title="MkDocs">Deploying</a>
-  </li>
-
-      
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#getting-help" title="MkDocs">Getting help</a>
-  </li>
-
-      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#easy-to-customize">Easy to customize</a>
+        </li>
+    
     </ul>
   </li>
 
+      
+    
+      
+          
+
+  <li class="toctree-l2">
+    <a href="#installation">
+      Installation
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l2">
+    <ul class="subnav-l2 toc-hidden">
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#install-with-a-package-manager">Install with a Package Manager</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#manual-installation">
+      Manual Installation
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#installing-python">Installing Python</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#installing-pip">Installing pip</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#installing-mkdocs">Installing MkDocs</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#getting-started">Getting Started</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#adding-pages">Adding pages</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#theming-our-documentation">Theming our documentation</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#changing-the-favicon-icon">Changing the Favicon Icon</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#building-the-site">Building the site</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#other-commands-and-options">Other Commands and Options</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#deploying">Deploying</a>
+        </li>
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#getting-help">Getting help</a>
+        </li>
+    
+    </ul>
+  </li>
+
+
+  
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">User Guide</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/writing-your-docs/">Writing Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/styling-your-docs/">Styling Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/configuration/">Configuration</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/deploying-your-docs/">Deploying Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/custom-themes/">Custom Themes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="user-guide/plugins/">Plugins</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">About</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="about/release-notes/">Release Notes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="about/contributing/">Contributing</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="about/license/">License</a>
+  </li>
+        
+      </ul>
+    </li>
     
   </ul>
-
-      </li>
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
-
-  
-    
-    
-    
-    
-    
-    
-
-  <p class="caption">User Guide</p>
-
-
-<ul class="" href="user-guide/instructions">
-  
-    
-      
-<li class=" toctree-l1">
-  <a href="user-guide/instructions/" title="Instructions"
-      class="">
-    Instructions
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="user-guide/configuration/" title="Configuration"
-      class="">
-    Configuration
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="user-guide/custom-themes/" title="Custom themes"
-      class="">
-    Custom themes
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="user-guide/plugins/" title="Plugins"
-      class="">
-    Plugins
-  </a>
-
-  
-  
-</li>
-    
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
-
-  
-    
-    
-    
-    
-    
-    
-
-  <p class="caption">About</p>
-
-
-<ul class="" href="about/release-notes">
-  
-    
-      
-<li class=" toctree-l1">
-  <a href="about/release-notes/" title="Release Notes"
-      class="">
-    Release Notes
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="about/contributing/" title="Contributing"
-      class="">
-    Contributing
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="about/license/" title="License"
-      class="">
-    License
-  </a>
-
-  
-  
-</li>
-    
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
       </div>
       &nbsp;
     </nav>
@@ -385,11 +374,11 @@ source files are written in Markdown, and configured with a single YAML
 configuration file.</p>
 <h3 id="host-anywhere">Host anywhere</h3>
 <p>MkDocs builds completely static HTML sites that you can host on GitHub pages,
-Amazon S3, or <a href="./user-guide/deploying-your-docs/">anywhere</a> else you choose.</p>
+Amazon S3, or <a href="user-guide/deploying-your-docs/">anywhere</a> else you choose.</p>
 <h3 id="great-themes-available">Great themes available</h3>
 <p>There's a stack of good looking themes available for MkDocs. Choose between
-the built in themes: <a href="./user-guide/styling-your-docs/#mkdocs">mkdocs</a> and <a href="./user-guide/styling-your-docs/#readthedocs">readthedocs</a>, select one of the 3rd
-party themes in the <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">MkDocs wiki</a>, or <a href="./user-guide/custom-themes/">build your own</a>.</p>
+the built in themes: <a href="user-guide/styling-your-docs/#mkdocs">mkdocs</a> and <a href="user-guide/styling-your-docs/#readthedocs">readthedocs</a>, select one of the 3rd
+party themes in the <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">MkDocs wiki</a>, or <a href="user-guide/custom-themes/">build your own</a>.</p>
 <h3 id="preview-your-site-as-you-work">Preview your site as you work</h3>
 <p>The built-in dev-server allows you to preview your documentation as you're
 writing it. It will even auto-reload and refresh your browser whenever you save
@@ -400,7 +389,7 @@ the theme.</p>
 <hr />
 <h2 id="installation">Installation</h2>
 <h3 id="install-with-a-package-manager">Install with a Package Manager</h3>
-<p>If you have and use a package manager (such as <a href="https://help.ubuntu.com/community/AptGet/Howto">apt-get</a>, <a href="http://dnf.readthedocs.io/en/latest/index.html">dnf</a>, <a href="http://brew.sh/">homebrew</a>,
+<p>If you have and use a package manager (such as <a href="https://help.ubuntu.com/community/AptGet/Howto">apt-get</a>, <a href="http://dnf.readthedocs.io/en/latest/index.html">dnf</a>, <a href="https://brew.sh/">homebrew</a>,
 <a href="http://yum.baseurl.org/">yum</a>, <a href="https://chocolatey.org/">chocolatey</a>, etc.) to install packages on your system, then you may
 want to search for a "MkDocs" package and, if a recent version is available,
 install it with your package manager (check your system's documentation for
@@ -418,7 +407,7 @@ $ pip --version
 pip 1.5.2
 </code></pre>
 
-<p>MkDocs supports Python versions 2.7, 3.3, 3.4, 3.5 and pypy.</p>
+<p>MkDocs supports Python versions 2.7, 3.4, 3.5, 3.6, 3.7 and pypy.</p>
 <h4 id="installing-python">Installing Python</h4>
 <p>Install <a href="https://www.python.org/">Python</a> by downloading an installer appropriate for your system from
 <a href="https://www.python.org/downloads/">python.org</a> and running it.</p>
@@ -453,6 +442,15 @@ mkdocs, version 0.15.3
 </code></pre>
 
 <p>!!! Note
+    If you would like manpages installed for MkDocs, the <a href="https://github.com/click-contrib/click-man">click-man</a> tool can
+    generate and install them for you. Simply run the following two commands:</p>
+<pre><code>    pip install click-man
+    click-man --target path/to/man/pages mkdocs
+
+See the [click-man documentation] for an explaination of why manpages are
+not automaticaly generated and installed by pip.
+</code></pre>
+<p>!!! Note
     If you are using Windows, some of the above commands may not work
     out-of-the-box.</p>
 <pre><code>A quick solution may be to preface every Python command with `python -m`
@@ -477,7 +475,7 @@ cd my-project
 </code></pre>
 
 <p>Take a moment to review the initial project that has been created for you.</p>
-<p><img alt="The initial MkDocs layout" src="./img/initial-layout.png" /></p>
+<p><img alt="The initial MkDocs layout" src="img/initial-layout.png" /></p>
 <p>There's a single configuration file named <code>mkdocs.yml</code>, and a folder named
 <code>docs</code> that will contain your documentation source files. Right now the <code>docs</code>
 folder just contains a single documentation page, named <code>index.md</code>.</p>
@@ -495,7 +493,7 @@ INFO    -  Cleaning site directory
 
 <p>Open up <code>http://127.0.0.1:8000/</code> in your browser, and you'll see the default
 home page being displayed:</p>
-<p><img alt="The MkDocs live server" src="./img/screenshot.png" /></p>
+<p><img alt="The MkDocs live server" src="img/screenshot.png" /></p>
 <p>The dev-server also supports auto-reloading, and will rebuild your documentation
 whenever anything in the configuration file, documentation directory, or theme
 directory changes.</p>
@@ -503,13 +501,13 @@ directory changes.</p>
 initial heading to <code>MkLorum</code>, and save your changes. Your browser will
 auto-reload and you should see your updated documentation immediately.</p>
 <p>Now try editing the configuration file: <code>mkdocs.yml</code>. Change the
-<a href="./user-guide/configuration/#site_name"><code>site_name</code></a> setting to <code>MkLorum</code> and save the file.</p>
+<a href="user-guide/configuration/#site_name"><code>site_name</code></a> setting to <code>MkLorum</code> and save the file.</p>
 <pre><code class="yaml">site_name: MkLorum
 </code></pre>
 
 <p>Your browser should immediately reload, and you'll see your new site name take
 effect.</p>
-<p><img alt="The site_name setting" src="./img/site-name.png" /></p>
+<p><img alt="The site_name setting" src="img/site-name.png" /></p>
 <h2 id="adding-pages">Adding pages</h2>
 <p>Now add a second page to your documentation:</p>
 <pre><code class="bash">curl 'https://jaspervdj.be/lorem-markdownum/markdown.txt' &gt; docs/about.md
@@ -517,7 +515,7 @@ effect.</p>
 
 <p>As our documentation site will include some navigation headers, you may want to
 edit the configuration file and add some information about the order, title, and
-nesting of each page in the navigation header by adding a <a href="./user-guide/configuration/#pages"><code>pages</code></a>
+nesting of each page in the navigation header by adding a <a href="user-guide/configuration/#pages"><code>pages</code></a>
 setting:</p>
 <pre><code class="yaml">site_name: MkLorum
 pages:
@@ -528,17 +526,17 @@ pages:
 <p>Save your changes and you'll now see a navigation bar with <code>Home</code> and <code>About</code>
 items on the left as well as <code>Search</code>, <code>Previous</code>, and <code>Next</code> items on the
 right.</p>
-<p><img alt="Screenshot" src="./img/multipage.png" /></p>
+<p><img alt="Screenshot" src="img/multipage.png" /></p>
 <p>Try the menu items and navigate back and forth between pages. Then click on
 <code>Search</code>. A search dialog will appear, allowing you to search for any text on
 any page. Notice that the search results include every occurrence of the search
 term on the site and links directly to the section of the page in which the
 search term appears. You get of all that with no effort or configuration on your
 part!</p>
-<p><img alt="Screenshot" src="./img/search.png" /></p>
+<p><img alt="Screenshot" src="img/search.png" /></p>
 <h2 id="theming-our-documentation">Theming our documentation</h2>
 <p>Now change the configuration file to alter how the documentation is displayed by
-changing the theme. Edit the <code>mkdocs.yml</code> file and add a <a href="./user-guide/configuration/#theme"><code>theme</code></a> setting:</p>
+changing the theme. Edit the <code>mkdocs.yml</code> file and add a <a href="user-guide/configuration/#theme"><code>theme</code></a> setting:</p>
 <pre><code class="yaml">site_name: MkLorum
 pages:
     - Home: index.md
@@ -547,9 +545,9 @@ theme: readthedocs
 </code></pre>
 
 <p>Save your changes, and you'll see the ReadTheDocs theme being used.</p>
-<p><img alt="Screenshot" src="./img/readthedocs.png" /></p>
+<p><img alt="Screenshot" src="img/readthedocs.png" /></p>
 <h2 id="changing-the-favicon-icon">Changing the Favicon Icon</h2>
-<p>By default, MkDocs uses the <a href="./img/favicon.ico">MkDocs favicon</a> icon. To use a different icon, create
+<p>By default, MkDocs uses the <a href="img/favicon.ico">MkDocs favicon</a> icon. To use a different icon, create
 an <code>img</code> subdirectory in your <code>docs_dir</code> and copy your custom <code>favicon.ico</code> file
 to that directory. MkDocs will automatically detect and use that file as your
 favicon icon.</p>
@@ -598,11 +596,11 @@ with that command. For example, to get a list of all options available for the
 
 <h2 id="deploying">Deploying</h2>
 <p>The documentation site that you just built only uses static files so you'll be
-able to host it from pretty much anywhere. <a href="https://help.github.com/articles/creating-project-pages-manually/">GitHub project pages</a> and <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Amazon
+able to host it from pretty much anywhere. <a href="https://help.github.com/articles/creating-project-pages-manually/">GitHub project pages</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Amazon
 S3</a> may be good hosting options, depending upon your needs. Upload the contents
 of the entire <code>site</code> directory to wherever you're hosting your website from and
 you're done. For specific instructions on a number of common hosts, see the
-<a href="./user-guide/deploying-your-docs/">Deploying your Docs</a> page.</p>
+<a href="user-guide/deploying-your-docs/">Deploying your Docs</a> page.</p>
 <h2 id="getting-help">Getting help</h2>
 <p>To get help with MkDocs, please use the <a href="https://groups.google.com/forum/#!forum/mkdocs">discussion group</a>, <a href="https://github.com/mkdocs/mkdocs/issues">GitHub issues</a> or
 the MkDocs IRC channel <code>#mkdocs</code> on freenode.</p>
@@ -613,7 +611,7 @@ the MkDocs IRC channel <code>#mkdocs</code> on freenode.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="user-guide/instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="user-guide/writing-your-docs/" class="btn btn-neutral float-right" title="Writing Your Docs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -643,19 +641,18 @@ the MkDocs IRC channel <code>#mkdocs</code> on freenode.</p>
       
       
       
-        <span style="margin-left: 15px"><a href="user-guide/instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="user-guide/writing-your-docs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script>var base_url = '.';</script>
-    <script src="./js/theme.js"></script>
-      <script src="./search/require.js"></script>
-      <script src="./search/search.js"></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 0.17.2
-Build Date UTC : 2018-03-12 00:25:43
+MkDocs version : 1.0.1
+Build Date UTC : 2018-08-20 04:12:58
 -->

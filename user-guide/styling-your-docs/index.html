@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Chad Sheets">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Styling Your Docs - ReadTheDocs Dropdown</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Styling Your Docs";
+    var mkdocs_page_input_path = "user-guide/styling-your-docs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-10006093-5', 'readthedocs.sheets.ch');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ReadTheDocs Dropdown</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="tocbase current">
+    
+    
+      
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../..">MkDocs</a>
+  </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">User Guide</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../writing-your-docs/">Writing Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  
+    
+    <li class="navtree toctree-l2 page current">
+      <a class="current" href="./">
+        Styling Your Docs
+          <span class="toctree-expand"></span>
+      </a>
+    </li>
+    
+      
+
+
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
+      
+          
+
+  <li class="toctree-l3 current with-children">
+    <a href="#built-in-themes">
+      Built-in themes
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3 current">
+    <ul class="subnav-l3 current">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#mkdocs">mkdocs</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#readthedocs">readthedocs</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#third-party-themes">Third Party Themes</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#customizing-a-theme">
+      Customizing a Theme
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#using-the-docs_dir">Using the docs_dir</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l4">
+    <a href="#using-the-theme-custom_dir">
+      Using the theme custom_dir
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4">
+    <ul class="subnav-l4 toc-hidden">
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#overriding-template-blocks">Overriding Template Blocks</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#combining-the-custom_dir-and-template-blocks">Combining the custom_dir and Template Blocks</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+
+  
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../configuration/">Configuration</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../deploying-your-docs/">Deploying Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../custom-themes/">Custom Themes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../plugins/">Plugins</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">About</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/release-notes/">Release Notes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/contributing/">Contributing</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/license/">License</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ReadTheDocs Dropdown</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Styling Your Docs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cjsheets/readthedocs-dropdown/edit/master/docs/user-guide/styling-your-docs.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="styling-your-docs">Styling your docs</h1>
+<p>How to style and theme your documentation.</p>
+<hr />
+<p>MkDocs includes a couple <a href="#built-in-themes">built-in themes</a> as well as various <a href="#third-party-themes">third party
+themes</a>, all of which can easily be customized with <a href="#using-the-docs_dir">extra CSS or
+JavaScript</a> or overridden from the theme's <a href="../configuration/#custom_dir">custom_dir</a>. You can also
+create your own <a href="../custom-themes/">custom theme</a> from the ground up for your documentation.</p>
+<p>To use a theme that is included in MkDocs, simply add this to your
+<code>mkdocs.yml</code> config file.</p>
+<pre><code>theme: readthedocs
+</code></pre>
+<p>Replace <a href="#readthedocs"><code>readthedocs</code></a> with any of the <a href="#built-in-themes">built-in themes</a> listed below.</p>
+<p>To create a new custom theme see the <a href="../custom-themes/">Custom Themes</a> page, or to
+more heavily customize an existing theme, see
+the <a href="#customizing-a-theme">Customizing a Theme</a> section below.</p>
+<h2 id="built-in-themes">Built-in themes</h2>
+<h3 id="mkdocs">mkdocs</h3>
+<p>The default theme, which was built as a custom <a href="https://getbootstrap.com/">Bootstrap</a> theme, supports most
+every feature of MkDocs. It only officially supports two levels in the
+navigation (see #1107).</p>
+<p><img alt="mkdocs" src="../../img/mkdocs.png" /></p>
+<p>In addition to the default <a href="../configuration/#theme">theme configuration options</a>, the <code>mkdocs</code> theme
+supports the following options:</p>
+<ul>
+<li>
+<p><strong><code>highlightjs</code></strong>: Enables highlighting of source code in code blocks using
+  the <a href="https://highlightjs.org/">highlight.js</a> JavaScript library. Default: <code>True</code>.</p>
+</li>
+<li>
+<p><strong><code>hljs_style</code></strong>: The highlight.js library provides 79 different <a href="https://highlightjs.org/static/demo/">styles</a>
+  (color variations) for highlighting source code in code blocks. Set this to
+  the name of the desired style. Default: <code>github</code>.</p>
+</li>
+<li>
+<p><strong><code>hljs_languages</code></strong>: By default, highlight.js only supports 23 common
+  languages. List additional languages here to include support for them.</p>
+<pre><code>theme:
+    name: mkdocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+</code></pre>
+</li>
+<li>
+<p><strong><code>shortcuts</code></strong>: Defines keyboard shortcut keys.</p>
+<pre><code>theme:
+    name: mkdocs
+    shortcuts:
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+        search: 83   # s
+</code></pre>
+<p>All values much be numeric key codes. It is best to use keys which are
+available on all keyboards. You may use <a href="http://keycode.info/">http://keycode.info/</a> to determine
+the key code for a given key.</p>
+<ul>
+<li>
+<p><strong><code>help</code></strong>: Display a help modal which lists the keyboard shortcuts.
+  Default: <code>191</code> (&quest;)</p>
+</li>
+<li>
+<p><strong><code>next</code></strong>: Navigate to the "next" page. Default: <code>78</code> (n)</p>
+</li>
+<li>
+<p><strong><code>previous</code></strong>: Navigate to the "previous" page. Default: <code>80</code> (p)</p>
+</li>
+<li>
+<p><strong><code>search</code></strong>: Display the search modal. Default: <code>83</code> (s)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="readthedocs">readthedocs</h3>
+<p>A clone of the default theme used by the <a href="https://readthedocs.org/">Read the Docs</a> service, which offers
+the same restricted feature-set as its parent theme. Like its parent theme, only
+two levels of navigation are supported.</p>
+<p><img alt="ReadTheDocs" src="../../img/readthedocs.png" /></p>
+<p>In addition to the default <a href="../configuration/#theme">theme configuration options</a>, the <code>readthedocs</code>
+theme supports the following options:</p>
+<ul>
+<li>
+<p><strong><code>highlightjs</code></strong>: Enables highlighting of source code in code blocks using
+  the <a href="https://highlightjs.org/">highlight.js</a> JavaScript library. Default: <code>True</code>.</p>
+</li>
+<li>
+<p><strong><code>hljs_languages</code></strong>: By default, highlight.js only supports 23 common
+  languages. List additional languages here to include support for them.</p>
+<pre><code>theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+</code></pre>
+</li>
+</ul>
+<h3 id="third-party-themes">Third Party Themes</h3>
+<p>A list of third party themes can be found in the MkDocs <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">community wiki</a>. If you
+have created your own, please feel free to add it to the list.</p>
+<h2 id="customizing-a-theme">Customizing a Theme</h2>
+<p>If you would like to make a few tweaks to an existing theme, there is no need to
+create your own theme from scratch. For minor tweaks which only require some CSS
+and/or JavaScript, you can use the <a href="#using-the-docs_dir">docs_dir</a>. However, for more complex
+customizations, including overriding templates, you will need to use the theme
+<a href="../configuration/#custom_dir">custom_dir</a> setting.</p>
+<h3 id="using-the-docs_dir">Using the docs_dir</h3>
+<p>The <a href="../configuration/#extra_css">extra_css</a> and <a href="../configuration/#extra_javascript">extra_javascript</a> configuration options can be used to
+make tweaks and customizations to existing themes. To use these, you simply
+need to include either CSS or JavaScript files within your <a href="../configuration/#docs_dir">documentation
+directory</a>.</p>
+<p>For example, to change the colour of the headers in your documentation, create
+a file called <code>extra.css</code> and place it next to the documentation Markdown. In
+that file add the following CSS.</p>
+<pre><code class="CSS">h1 {
+  color: red;
+}
+</code></pre>
+
+<p>!!! note</p>
+<pre><code>If you are deploying your documentation with [ReadTheDocs]. You will need
+to explicitly list the CSS and JavaScript files you want to include in
+your config. To do this, add the following to your mkdocs.yml.
+
+    extra_css: [extra.css]
+</code></pre>
+<p>After making these changes, they should be visible when you run
+<code>mkdocs serve</code> - if you already had this running, you should see that the CSS
+changes were automatically picked up and the documentation will be updated.</p>
+<p>!!! note</p>
+<pre><code>Any extra CSS or JavaScript files will be added to the generated HTML
+document after the page content. If you desire to include a JavaScript
+library, you may have better success including the library by using the
+theme [custom_dir].
+</code></pre>
+<h3 id="using-the-theme-custom_dir">Using the theme custom_dir</h3>
+<p>The theme.<a href="../configuration/#custom_dir">custom_dir</a> configuration option can be used to point to a directory
+of files which override the files in a parent theme. The parent theme would be
+the theme defined in the theme.<a href="../configuration/#name">name</a> configuration option. Any file in the
+<code>custom_dir</code> with the same name as a file in the parent theme will replace the
+file of the same name in the parent theme. Any additional files in the
+<code>custom_dir</code> will be added to the parent theme. The contents of the <code>custom_dir</code>
+should mirror the directory structure of the parent theme. You may include
+templates, JavaScript files, CSS files, images, fonts, or any other media
+included in a theme.</p>
+<p>!!! Note</p>
+<pre><code>For this to work, the theme `name` setting must be set to a known installed theme.
+If the `name` setting is instead set to `null` (or not defined), then there
+is no theme to override and the contents of the `custom_dir` must be a
+complete, standalone theme. See [Custom Themes][custom theme] for more
+information.
+</code></pre>
+<p>For example, the <a href="#mkdocs">mkdocs</a> theme (<a href="https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes/mkdocs">browse source</a>), contains the following
+directory structure (in part):</p>
+<pre><code class="nohighlight">- css\
+- fonts\
+- img\
+  - favicon.ico
+  - grid.png
+- js\
+- 404.html
+- base.html
+- content.html
+- nav-sub.html
+- nav.html
+- toc.html
+</code></pre>
+
+<p>To override any of the files contained in that theme, create a new directory
+next to your <code>docs_dir</code>:</p>
+<pre><code class="bash">mkdir custom_theme
+</code></pre>
+
+<p>And then point your <code>mkdocs.yml</code> configuration file at the new directory:</p>
+<pre><code class="yaml">theme:
+    name: mkdocs
+    custom_dir: custom_theme/
+</code></pre>
+
+<p>To override the 404 error page ("file not found"), add a new template file named
+<code>404.html</code> to the <code>custom_theme</code> directory. For information on what can be
+included in a template, review the documentation for building a <a href="../custom-themes/">custom theme</a>.</p>
+<p>To override the favicon, you can add a new icon file at
+<code>custom_theme/img/favicon.ico</code>.</p>
+<p>To include a JavaScript library, copy the library to the <code>custom_theme/js/</code>
+directory.</p>
+<p>Your directory structure should now look like this:</p>
+<pre><code class="nohighlight">- docs/
+  - index.html
+- custom_theme/
+  - img/
+    - favicon.ico
+  - js/
+    - somelib.js
+  - 404.html
+- config.yml
+</code></pre>
+
+<p>!!! Note</p>
+<pre><code>Any files included in the parent theme (defined in `name`) but not included
+in the `custom_dir` will still be utilized. The `custom_dir` will only
+override/replace files in the parent theme. If you want to remove files, or
+build a theme from scratch, then you should review the documentation for
+building a [custom theme].
+</code></pre>
+<h4 id="overriding-template-blocks">Overriding Template Blocks</h4>
+<p>The built-in themes implement many of their parts inside template blocks which
+can be individually overridden in the <code>main.html</code> template. Simply create a
+<code>main.html</code> template file in your <code>custom_dir</code> and define replacement blocks
+within that file. Just make sure that the <code>main.html</code> extends <code>base.html</code>. For
+example, to alter the title of the MkDocs theme, your replacement <code>main.html</code>
+template would contain the following:</p>
+<pre><code class="django">{% extends &quot;base.html&quot; %}
+
+{% block title %}
+&lt;title&gt;Custom title goes here&lt;/title&gt;
+{% endblock %}
+</code></pre>
+
+<p>In the above example, the title block defined in your custom <code>main.html</code> file
+will be used in place of the default title block defined in the parent theme.
+You may re-define as many blocks as you desire, as long as those blocks are
+defined in the parent. For example, you could replace the Google Analytics
+script with one for a different service or replace the search feature with your
+own. You will need to consult the parent theme you are using to determine what
+blocks are available to override. The MkDocs and ReadTheDocs themes provide the
+following blocks:</p>
+<ul>
+<li><code>site_meta</code>: Contains meta tags in the document head.</li>
+<li><code>htmltitle</code>: Contains the page title in the document head.</li>
+<li><code>styles</code>: Contains the link tags for stylesheets.</li>
+<li><code>libs</code>: Contains the JavaScript libraries (jQuery, etc) included in the page header.</li>
+<li><code>scripts</code>: Contains JavaScript scripts which should execute after a page loads.</li>
+<li><code>analytics</code>: Contains the analytics script.</li>
+<li><code>extrahead</code>: An empty block in the <code>&lt;head&gt;</code> to insert custom tags/scripts/etc.</li>
+<li><code>site_name</code>: Contains the site name in the navigation bar.</li>
+<li><code>site_nav</code>: Contains the site navigation in the navigation bar.</li>
+<li><code>search_box</code>: Contains the search box in the navigation bar.</li>
+<li><code>next_prev</code>: Contains the next and previous buttons in the navigation bar.</li>
+<li><code>repo</code>: Contains the repository link in the navigation bar.</li>
+<li><code>content</code>: Contains the page content and table of contents for the page.</li>
+<li><code>footer</code>: Contains the page footer.</li>
+</ul>
+<p>You may need to view the source template files to ensure your modifications will
+work with the structure of the site. See <a href="../custom-themes/#template-variables">Template Variables</a> for a list of
+variables you can use within your custom blocks. For a more complete
+explanation of blocks, consult the <a href="http://jinja.pocoo.org/docs/dev/templates/#template-inheritance">Jinja documentation</a>.</p>
+<h4 id="combining-the-custom_dir-and-template-blocks">Combining the custom_dir and Template Blocks</h4>
+<p>Adding a JavaScript library to the <code>custom_dir</code> will make it available, but
+won't include it in the pages generated by MkDocs. Therefore, a link needs to
+be added to the library from the HTML.</p>
+<p>Starting the with directory structure above (truncated):</p>
+<pre><code class="nohighlight">- docs/
+- custom_theme/
+  - js/
+    - somelib.js
+- config.yml
+</code></pre>
+
+<p>A link to the <code>custom_theme/js/somelib.js</code> file needs to be added to the
+template. As <code>somelib.js</code> is a JavaScript library, it would logically go in the
+<code>libs</code> block. However, a new <code>libs</code> block that only includes the new script will
+replace the block defined in the parent template and any links to libraries in
+the parent template will be removed. To avoid breaking the template, a
+<a href="http://jinja.pocoo.org/docs/dev/templates/#super-blocks">super block</a> can be used with a call to <code>super</code> from within the block:</p>
+<pre><code class="django">{% extends &quot;base.html&quot; %}
+
+{% block libs %}
+    {{ super() }}
+    &lt;script src=&quot;{{ base_url }}/js/somelib.js&quot;&gt;&lt;/script&gt;
+{% endblock %}
+</code></pre>
+
+<p>Note that the <a href="../custom-themes/#base_url">base_url</a> template variable was used to ensure that the link is
+always relative to the current page.</p>
+<p>Now the generated pages will include links to the template provided libraries as
+well as the library included in the <code>custom_dir</code>. The same would be required for
+any additional CSS files included in the <code>custom_dir</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configuration/" class="btn btn-neutral float-right" title="Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../writing-your-docs/" class="btn btn-neutral" title="Writing Your Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cjsheets/readthedocs-dropdown/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../writing-your-docs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

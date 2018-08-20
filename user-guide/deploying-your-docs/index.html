@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Chad Sheets">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Deploying Your Docs - ReadTheDocs Dropdown</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Deploying Your Docs";
+    var mkdocs_page_input_path = "user-guide/deploying-your-docs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-10006093-5', 'readthedocs.sheets.ch');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ReadTheDocs Dropdown</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="tocbase current">
+    
+    
+      
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../..">MkDocs</a>
+  </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">User Guide</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../writing-your-docs/">Writing Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../styling-your-docs/">Styling Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../configuration/">Configuration</a>
+  </li>
+        
+          
+          
+
+
+  
+    
+    <li class="navtree toctree-l2 page current">
+      <a class="current" href="./">
+        Deploying Your Docs
+          <span class="toctree-expand"></span>
+      </a>
+    </li>
+    
+      
+
+
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
+      
+          
+
+  <li class="toctree-l3 current with-children">
+    <a href="#github-pages">
+      GitHub Pages
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3 current">
+    <ul class="subnav-l3 current">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#project-pages">Project Pages</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#organization-and-user-pages">Organization and User Pages</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#custom-domains">Custom Domains</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#read-the-docs">Read the Docs</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#other-providers">Other Providers</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#404-pages">404 Pages</a>
+        </li>
+    
+    </ul>
+  </li>
+
+
+  
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../custom-themes/">Custom Themes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../plugins/">Plugins</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">About</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/release-notes/">Release Notes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/contributing/">Contributing</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/license/">License</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ReadTheDocs Dropdown</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Deploying Your Docs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cjsheets/readthedocs-dropdown/edit/master/docs/user-guide/deploying-your-docs.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="deploying-your-docs">Deploying your docs</h1>
+<p>A basic guide to deploying your docs to various hosting providers</p>
+<hr />
+<h2 id="github-pages">GitHub Pages</h2>
+<p>If you host the source code for a project on <a href="https://github.com/">GitHub</a>, you can easily use
+<a href="https://pages.github.com/">GitHub Pages</a> to host the documentation for your project. There are two basic
+types of GitHub Pages sites: <a href="https://help.github.com/articles/user-organization-and-project-pages/#project-pages-sites">Project Pages</a> sites, and <a href="https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites">User and Organization
+Pages</a> sites. They are nearly identical but have some important differences,
+which require a different work flow when deploying.</p>
+<h3 id="project-pages">Project Pages</h3>
+<p>Project Pages sites are simpler as the site files get deployed to a branch
+within the project repository (<code>gh-pages</code> by default). After you <code>checkout</code> the
+primary working branch (usually <code>master</code>) of the git repository where you
+maintain the source documentation for your project, run the following command:</p>
+<pre><code class="sh">mkdocs gh-deploy
+</code></pre>
+
+<p>That's it! Behind the scenes, MkDocs will build your docs and use the
+<a href="https://github.com/davisp/ghp-import">ghp-import</a> tool to commit them to the <code>gh-pages</code> branch and push the
+<code>gh-pages</code> branch to GitHub.</p>
+<p>Use <code>mkdocs gh-deploy --help</code> to get a full list of options available for the
+<code>gh-deploy</code> command.</p>
+<p>Be aware that you will not be able to review the built site before it is pushed
+to GitHub. Therefore, you may want to verify any changes you make to the docs
+beforehand by using the <code>build</code> or <code>serve</code> commands and reviewing the built
+files locally.</p>
+<p>!!! warning</p>
+<pre><code>You should never edit files in your pages repository by hand if you're using
+the `gh-deploy` command because you will lose your work the next time you
+run the command.
+</code></pre>
+<h3 id="organization-and-user-pages">Organization and User Pages</h3>
+<p>User and Organization Pages sites are not tied to a specific project, and the
+site files are deployed to the <code>master</code> branch in a dedicated repository named
+with the GitHub account name. Therefore, you need working copies of two
+repositories on our local system. For example, consider the following file
+structure:</p>
+<pre><code class="no-highlight">my-project/
+    mkdocs.yml
+    docs/
+orgname.github.io/
+</code></pre>
+
+<p>After making and verifying updates to your project you need to change
+directories to the <code>orgname.github.io</code> repository and call the
+<code>mkdocs gh-deploy</code> command from there:</p>
+<pre><code class="sh">cd ../orgname.github.io/
+mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
+</code></pre>
+
+<p>Note that you need to explicitly point to the <code>mkdocs.yml</code> configuration file as
+it is no longer in the current working directory. You also need to inform the
+deploy script to commit to the <code>master</code> branch. You may override the default
+with the <a href="../configuration/#remote_branch">remote_branch</a> configuration setting, but if you forget to change
+directories before running the deploy script, it will commit to the <code>master</code>
+branch of your project, which you probably don't want.</p>
+<p>Be aware that you will not be able to review the built site before it is pushed
+to GitHub. Therefore, you may want to verify any changes you make to the docs
+beforehand by using the <code>build</code> or <code>serve</code> commands and reviewing the built
+files locally.</p>
+<p>!!! warning</p>
+<pre><code>You should never edit files in your pages repository by hand if you're using
+the `gh-deploy` command because you will lose your work the next time you
+run the command.
+</code></pre>
+<h3 id="custom-domains">Custom Domains</h3>
+<p>GitHub Pages includes support for using a <a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site">Custom Domain</a> for your site. In
+addition to the steps documented by GitHub, you need to take one additional step
+so that MkDocs will work with your custom domain. You need to add a <code>CNAME</code> file
+to the root of your <a href="../configuration/#docs_dir">docs_dir</a>. The file must contain a single bare domain or
+subdomain on a single line (see MkDocs' own <a href="https://github.com/mkdocs/mkdocs/blob/master/docs/CNAME">CNAME file</a> as an example). You may
+create the file manually, or use GitHub's web interface to set up the custom
+domain (under Settings / Custom Domain). If you use the web interface, GitHub
+will create the <code>CNAME</code> file for you and save it to the root of your "pages"
+branch. So that the file does not get removed the next time you deploy, you need
+to copy the file to your <code>docs_dir</code>. With the file properly included in your
+<code>docs_dir</code>, MkDocs will include the file in your built site and push it to your
+"pages" branch each time you run the <code>gh-deploy</code> command.</p>
+<p>If you are having problems getting a custom domain to work, see GitHub's
+documentation on <a href="https://help.github.com/articles/troubleshooting-custom-domains/">Troubleshooting custom domains</a>.</p>
+<h2 id="read-the-docs">Read the Docs</h2>
+<p><a href="https://readthedocs.org/">Read the Docs</a> offers free documentation hosting. You can import your docs
+using any major version control system, including Mercurial, Git, Subversion,
+and Bazaar. Read the Docs supports MkDocs out-of-the-box. Follow the
+<a href="https://read-the-docs.readthedocs.io/en/latest/getting_started.html#in-markdown">instructions</a> on their site to arrange the files in your repository properly,
+create an account and point it at your publicly hosted repository. If properly
+configured, your documentation will update each time you push commits to your
+public repository.</p>
+<p>!!! note</p>
+<pre><code>To benefit from all of the [features] offered by Read the Docs, you will need
+to use the [Read the Docs theme][theme] which ships with MkDocs. The various
+themes which may be referenced in Read the Docs' documentation are Sphinx
+specific themes and will not work with MkDocs.
+</code></pre>
+<h2 id="other-providers">Other Providers</h2>
+<p>Any hosting provider which can serve static files can be used to serve
+documentation generated by MkDocs. While it would be impossible to document how
+to upload the docs to every hosting provider out there, the following guidelines
+should provide some general assistance.</p>
+<p>When you build your site (using the <code>mkdocs build</code> command), all of the files
+are written to the directory assigned to the <a href="../configuration/#site_dir">site_dir</a> configuration option
+(defaults to <code>"site"</code>) in your <code>mkdocs.yaml</code> config file. Generally, you will
+simply need to copy the contents of that directory to the root directory of your
+hosting provider's server. Depending on your hosting provider's setup, you may
+need to use a graphical or command line <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol">ftp</a>, <a href="https://en.wikipedia.org/wiki/Secure_Shell">ssh</a> or <a href="https://en.wikipedia.org/wiki/Secure_copy">scp</a> client to transfer
+the files.</p>
+<p>For example, a typical set of commands from the command line might look
+something like this:</p>
+<pre><code class="sh">mkdocs build
+scp -r ./site user@host:/path/to/server/root
+</code></pre>
+
+<p>Of course, you will need to replace <code>user</code> with the username you have with your
+hosting provider and <code>host</code> with the appropriate domain name. Additionally, you
+will need to adjust the <code>/path/to/server/root</code> to match the configuration of
+your hosts' file system.</p>
+<p>See your host's documentation for specifics. You will likely want to search
+their documentation for "ftp" or "uploading site".</p>
+<h2 id="404-pages">404 Pages</h2>
+<p>When MkDocs builds the documentation it will include a 404.html file in the
+<a href="../configuration/#site_dir">build directory</a>. This file will be automatically used when
+deploying to <a href="#github-pages">GitHub</a> but only on a custom domain. Other web
+servers may be configured to use it but the feature won't always be available.
+See the documentation for your server of choice for more information.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../custom-themes/" class="btn btn-neutral float-right" title="Custom Themes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../configuration/" class="btn btn-neutral" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cjsheets/readthedocs-dropdown/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../custom-themes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

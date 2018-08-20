@@ -1,62 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/user-guide/instructions/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/user-guide/configuration/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/user-guide/custom-themes/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/user-guide/plugins/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/about/release-notes/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/about/contributing/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/about/license/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
+    <url>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>None</loc>
+     <lastmod>2018-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>

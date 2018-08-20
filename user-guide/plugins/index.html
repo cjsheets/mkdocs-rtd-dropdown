@@ -14,24 +14,28 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Plugins";
     var mkdocs_page_input_path = "user-guide/plugins.md";
-    var mkdocs_page_url = "/user-guide/plugins/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-10006093-5', 'readthedocs.sheets.ch');
       ga('send', 'pageview');
@@ -49,225 +53,379 @@
         <a href="../.." class="icon icon-home"> ReadTheDocs Dropdown</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      
-
-
-  
-    
-
-
-<ul class="" href="/">
-  
-    
-    
-      <li class=" toctree-l1">
-        <a class="" href="/">MkDocs</a>
-      </li>
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
-
-  
-    
-    
-    
-    
-    
-    
-
-  <p class="caption">User Guide</p>
-
-
-<ul class="current" href="user-guide/instructions">
-  
-    
-      
-<li class=" toctree-l1">
-  <a href="../instructions/" title="Instructions"
-      class="">
-    Instructions
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="../configuration/" title="Configuration"
-      class="">
-    Configuration
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="../custom-themes/" title="Custom themes"
-      class="">
-    Custom themes
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class="current toctree-l1">
-  <a href="./" title="Plugins"
-      class="current">
-    Plugins
-  </a>
-
-  
-  
+	<ul class="tocbase current">
     
     
       
-  
-  
-  <ul class="current subnav">
-    
       
 
-  
-  
-  
 
-
-  <li class="current toctree-l2">
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../..">MkDocs</a>
+  </li>
     
-    <ul class="current subnav">
       
-        
-
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#installing-plugins" title="Plugins">Installing Plugins</a>
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">User Guide</p>
   </li>
 
-      
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../writing-your-docs/">Writing Your Docs</a>
+  </li>
         
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../styling-your-docs/">Styling Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../configuration/">Configuration</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../deploying-your-docs/">Deploying Your Docs</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../custom-themes/">Custom Themes</a>
+  </li>
+        
+          
+          
+
 
   
-  
+    
+    <li class="navtree toctree-l2 page current">
+      <a class="current" href="./">
+        Plugins
+          <span class="toctree-expand"></span>
+      </a>
+    </li>
+    
+      
 
 
-  <li class="toctree-l2 toc-item">
-    <a href="#using-plugins" title="Plugins">Using Plugins</a>
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#installing-plugins">Installing Plugins</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#using-plugins">Using Plugins</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#developing-plugins">
+      Developing Plugins
+      <span class="toctree-expand"></span>
+    </a>
   </li>
 
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
       
-        
+          
 
-  
-  
-
-
-  <li class="toctree-l2 toc-item">
-    <a href="#developing-plugins" title="Plugins">Developing Plugins</a>
+  <li class="toctree-l4 current with-children">
+    <a href="#baseplugin">
+      BasePlugin
+      <span class="toctree-expand"></span>
+    </a>
   </li>
 
+
+
+  <li class="toctree-l4 current">
+    <ul class="subnav-l4 current">
+    
       
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#config_scheme">config_scheme</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#config">config</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#load_configoptions">load_config(options)</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#on_event_name">on_&lt;event_name&gt;()</a>
+        </li>
+    
     </ul>
   </li>
 
+      
+    
+      
+          
+
+  <li class="toctree-l4">
+    <a href="#events">
+      Events
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4">
+    <ul class="subnav-l4 toc-hidden">
+    
+      
+          
+
+  <li class="toctree-l5 current with-children">
+    <a href="#global-events">
+      Global Events
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l5 current">
+    <ul class="subnav-l5 current">
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_serve">on_serve</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_config">on_config</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_pre_build">on_pre_build</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_files">on_files</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_nav">on_nav</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_env">on_env</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_post_build">on_post_build</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l5">
+    <a href="#template-events">
+      Template Events
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l5">
+    <ul class="subnav-l5 toc-hidden">
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_pre_template">on_pre_template</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_template_context">on_template_context</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_post_template">on_post_template</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l5">
+    <a href="#page-events">
+      Page Events
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l5">
+    <ul class="subnav-l5 toc-hidden">
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_pre_page">on_pre_page</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_page_read_source">on_page_read_source</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_page_markdown">on_page_markdown</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_page_content">on_page_content</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_page_context">on_page_context</a>
+        </li>
+    
+      
+        <li class="toctree-l6">
+          <a class="toctree-l7" href="#on_post_page">on_post_page</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#entry-point">Entry Point</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+
+  
+        
+      </ul>
+    </li>
+    
+      
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">About</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/release-notes/">Release Notes</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/contributing/">Contributing</a>
+  </li>
+        
+          
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../about/license/">License</a>
+  </li>
+        
+      </ul>
+    </li>
     
   </ul>
-
-    
-  
-</li>
-    
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
-
-  
-    
-    
-    
-    
-    
-    
-
-  <p class="caption">About</p>
-
-
-<ul class="" href="about/release-notes">
-  
-    
-      
-<li class=" toctree-l1">
-  <a href="../../about/release-notes/" title="Release Notes"
-      class="">
-    Release Notes
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="../../about/contributing/" title="Contributing"
-      class="">
-    Contributing
-  </a>
-
-  
-  
-</li>
-    
-      
-<li class=" toctree-l1">
-  <a href="../../about/license/" title="License"
-      class="">
-    License
-  </a>
-
-  
-  
-</li>
-    
-</ul>
-
-<!--
- | This is a hacky way to pass setting from the template generator to the
- | javascript that drives the dropdown functionality
--->
-<div style="width: 1px; height: 1px; visibility: none;">
-
-</div>
-
-
       </div>
       &nbsp;
     </nav>
@@ -306,7 +464,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mkdocs-plugins">MkDocs Plugins</h1>
+                <h1 id="plugins">Plugins</h1>
 <p>A Guide to installing, using and creating MkDocs Plugins</p>
 <hr />
 <h2 id="installing-plugins">Installing Plugins</h2>
@@ -351,19 +509,46 @@ possible to define multiple plugins in the same module. At a minimum, a MkDocs
 Plugin must consist of a <a href="#baseplugin">BasePlugin</a> subclass and an <a href="#entry-point">entry point</a> which
 points to it.</p>
 <h3 id="baseplugin">BasePlugin</h3>
-<p>A subclass of <code>mkdocs.pluhgins.BasePlugin</code> should define the behavior of the plugin.
+<p>A subclass of <code>mkdocs.plugins.BasePlugin</code> should define the behavior of the plugin.
 The class generally consists of actions to perform on specific events in the build
 process as well as a configuration scheme for the plugin.</p>
 <p>All <code>BasePlugin</code> subclasses contain the following attributes:</p>
 <h4 id="config_scheme">config_scheme</h4>
-<p>:   A tuple of configuration validation class instances (to be defined in a subclass).</p>
+<p>:   A tuple of configuration validation instances. Each item must consist of a
+    two item tuple in which the first item is the string name of the
+    configuration option and the second item is an instance of
+    <code>mkdocs.config.config_options.BaseConfigOption</code> or any of its subclasses.</p>
+<pre><code>For example, the following `config_scheme` defines three configuration options: `foo`, which accepts a string; `bar`, which accepts an integer; and `baz`, which accepts a boolean value.
+
+    class MyPlugin(mkdocs.plugins.BasePlugin):
+        config_scheme = (
+            ('foo', mkdocs.config.config_options.Type(mkdocs.utils.string_types, default='a default value')),
+            ('bar', mkdocs.config.config_options.Type(int, default=0)),
+            ('baz', mkdocs.config.config_options.Type(bool, default=True))
+        )
+
+When the user's configuration is loaded, the above scheme will be used to
+validate the configuration and fill in any defaults for settings not
+provided by the user. The validation classes may be any of the classes
+provided in `mkdocs.config.config_options` or a third party subclass defined
+in the plugin.
+
+Any settings provided by the user which fail validation or are not defined
+in the `config_scheme` will raise a `mkdocs.config.base.ValidationError`.
+</code></pre>
 <h4 id="config">config</h4>
-<p>:   A dictionary of configuration options for the plugin which is populated by the
-    <code>load_config</code> method.</p>
+<p>:   A dictionary of configuration options for the plugin, which is populated by
+    the <code>load_config</code> method after configuration validation has completed. Use
+    this attribute to access options provided by the user.</p>
+<pre><code>    def on_pre_build(self, config):
+        if self.config['bool_option']:
+            # implement "bool_option" functionality here...
+</code></pre>
 <p>All <code>BasePlugin</code> subclasses contain the following method(s):</p>
 <h4 id="load_configoptions">load_config(options)</h4>
-<p>:   Loads configuration from a dictionary of options. Returns a tuple of <code>(errors,
-    warnings)</code>.</p>
+<p>:   Loads configuration from a dictionary of options. Returns a tuple of
+    <code>(errors, warnings)</code>. This method is called by MkDocs during configuration
+    validation and should not need to be called by the plugin.</p>
 <h4 id="on_event_name">on_&lt;event_name&gt;()</h4>
 <p>:   Optional methods which define the behavior for specific <a href="#events">events</a>. The plugin
     should define its behavior within these methods. Replace <code>&lt;event_name&gt;</code> with
@@ -398,7 +583,7 @@ entire site.</p>
 <p>:   The <code>serve</code> event is only called when the <code>serve</code> command is used during
     development. It is passed the <code>Server</code> instance which can be modified before
     it is activated. For example, additional files or directories could be added
-    to the list of "watched" filed for auto-reloading.</p>
+    to the list of "watched" files for auto-reloading.</p>
 <pre><code>Parameters:
 : __server:__ `livereload.Server` instance
 : __config:__ global configuration object
@@ -422,12 +607,26 @@ Returns:
 <pre><code>Parameters:
 : __config:__ global configuration object
 </code></pre>
+<h5 id="on_files">on_files</h5>
+<p>:   The <code>files</code> event is called after the files collection is populated from the
+    <code>docs_dir</code>. Use this event to add, remove, or alter files in the
+    collection. Note that Page objects have not yet been associated with the
+    file objects in the collection. Use <a href="#page-events">Page Events</a> to manipulate page
+    specific data.</p>
+<pre><code>Parameters:
+: __files:__ global files collection
+: __config:__ global configuration object
+
+Returns:
+: global files collection
+</code></pre>
 <h5 id="on_nav">on_nav</h5>
 <p>:   The <code>nav</code> event is called after the site navigation is created and can
     be used to alter the site navigation.</p>
 <pre><code>Parameters:
-: __site_navigation:__ global navigation object
+: __nav:__ global navigation object
 : __config:__ global configuration object
+: __files:__ global files collection
 
 Returns:
 : global navigation object
@@ -492,8 +691,8 @@ Returns:
 </code></pre>
 <h4 id="page-events">Page Events</h4>
 <p>Page events are called once for each Markdown page included in the site. All
-page events are called after the <a href="#on_post_template">post_template</a> event and before the <a href="#on_post_build">post_build</a>
-event.</p>
+page events are called after the <a href="#on_post_template">post_template</a> event and before the
+<a href="#on_post_build">post_build</a> event.</p>
 <h5 id="on_pre_page">on_pre_page</h5>
 <p>:   The <code>pre_page</code> event is called before any actions are taken on the subject
     page and can be used to alter the <code>Page</code> instance.</p>
@@ -605,7 +804,7 @@ tell MkDocs to use if via the config.</p>
         <a href="../../about/release-notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../custom-themes/" class="btn btn-neutral" title="Custom themes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../custom-themes/" class="btn btn-neutral" title="Custom Themes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -641,9 +840,8 @@ tell MkDocs to use if via the config.</p>
     </span>
 </div>
     <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

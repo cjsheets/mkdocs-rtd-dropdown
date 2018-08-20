@@ -13,19 +13,27 @@ $( document ).ready(function() {
 
     // Keyboard navigation
     document.addEventListener("keydown", function(e) {
-        if ($(e.target).is(':input')) return true;
-        var key = e.which || e.keyCode || window.event && window.event.keyCode;
-        var page;
-        switch (key) {
-            case 39:  // right arrow
-                page = $('[role="navigation"] a:contains(Next):first').prop('href');
-                break;
-            case 37:  // left arrow
-                page = $('[role="navigation"] a:contains(Previous):first').prop('href');
-                break;
-            default: break;
-        }
-        if (page) window.location.href = page;
+      var key = e.which || e.keyCode || window.event && window.event.keyCode;
+      var page;
+      switch (key) {
+          case 78:  // n
+              page = $('[role="navigation"] a:contains(Next):first').prop('href');
+              break;
+          case 80:  // p
+              page = $('[role="navigation"] a:contains(Previous):first').prop('href');
+              break;
+          case 13:  // enter
+              if (e.target === document.getElementById('mkdocs-search-query')) {
+                e.preventDefault();
+              }
+              break;
+          default: break;
+      }
+      if ($(e.target).is(':input')) {
+        return true;
+      } else if (page) {
+        window.location.href = page;
+      }
     });
 
     $(document).on('click', "[data-toggle='rst-current-version']", function() {
@@ -35,31 +43,35 @@ $( document ).ready(function() {
     // Make tables responsive
     $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
 
-    hljs.initHighlightingOnLoad();
-
     $('table').addClass('docutils');
 
+    /*
+     * Custom rtd-dropdown
+     */
     toggleCurrent = function (elem) {
         var parent_li = elem.closest('li');
-        parent_li.siblings('li.current').removeClass('current');
-        parent_li.siblings().find('li.current').removeClass('current');
-        parent_li.find('> ul li.current').removeClass('current');
-        parent_li.toggleClass('current');
+        var menu_li = parent_li.next();
+        var menu_ul = menu_li.children('ul');
+        parent_li.siblings('li').not(menu_li).removeClass('current').removeClass('with-children');
+        parent_li.siblings().find('> ul').not(menu_ul).removeClass('current').addClass('toc-hidden');
+        parent_li.toggleClass('current').toggleClass('with-children');
+        menu_li.toggleClass('current');
+        menu_ul.toggleClass('current').toggleClass('toc-hidden');
     }
 
     // https://github.com/rtfd/sphinx_rtd_theme/blob/master/js/theme.js
-    $('.wy-menu-vertical ul').not('.simple').siblings('a').each(function () {
-        var link = $(this);
-            expand = $('<span class="toctree-expand"></span>');
-        expand.on('click', function (ev) {
+    $('.tocbase').find('.toctree-expand').each(function () {
+        var link = $(this).parent();
+        $(this).on('click', function (ev) {
+            console.log('click expand');
             toggleCurrent(link);
             ev.stopPropagation();
             return false;
         });
         link.on('click', function (ev) {
+            console.log('click link');
             toggleCurrent(link);
         });
-        link.prepend(expand);
     });
 });
 
