@@ -36,7 +36,6 @@
       <ul class="navtree subnav-l{{ navlevel }} current">
         {%- set navlevel = navlevel + 1%}
         {%- for nav_item in nav_item.children %}
-          {{ ("nav_item child: " + nav_item.title) | debug }}
           {% include 'nav.html' %}
         {% endfor %}
         {%- set navlevel = navlevel - 1%}
