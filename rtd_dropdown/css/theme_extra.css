@@ -195,27 +195,27 @@ td, th {
  * e3e3e3 c9c9c9 bdbdbd
  */
 
-.wy-menu-vertical .tocbase ul.current {
+.wy-menu-vertical ul.tocbase ul.current {
     display: block !important;
 }
 
-.wy-menu-vertical .tocbase ul.toc-hidden {
+.wy-menu-vertical ul.tocbase ul.toc-hidden {
     display: none !important;
 }
 
-.wy-menu-vertical .tocbase li a {
+.wy-menu-vertical ul.tocbase li a {
     position: relative;
     color: #808080;
     font-size: 14px;
     font-weight: 400;
 }
 
-.wy-menu-vertical .tocbase li.current.with-children > a {
+.wy-menu-vertical ul.tocbase li.current.with-children > a {
     color: #333333;
     font-weight: bold;
 }
 
-.wy-menu-vertical .tocbase span.toctree-expand {
+.wy-menu-vertical ul.tocbase span.toctree-expand {
     position: absolute;
     top: 6px;
     margin: 0px;
@@ -225,17 +225,22 @@ td, th {
     color: #333333;
 }
 
-.wy-menu-vertical .tocbase li.toctree-l2 > a > span.toctree-expand {
+.wy-menu-vertical ul.tocbase li.toctree-l2 > a > span.toctree-expand {
     left: 6px;
 }
-.wy-menu-vertical .tocbase li.toctree-l3 > a > span.toctree-expand {
+.wy-menu-vertical ul.tocbase li.toctree-l3 > a > span.toctree-expand {
     left: 16px;
 }
-.wy-menu-vertical .tocbase li.toctree-l4 > a > span.toctree-expand {
+.wy-menu-vertical ul.tocbase li.toctree-l4 > a > span.toctree-expand {
     left: 26px;
 }
-.wy-menu-vertical .tocbase li.toctree-l5 > a > span.toctree-expand {
+.wy-menu-vertical ul.tocbase li.toctree-l5 > a > span.toctree-expand {
     left: 36px;
+}
+
+.wy-menu-vertical ul.tocbase li.navtree.toctree-l1.inactive > a,
+.wy-menu-vertical ul.tocbase li.navtree.toctree-l2.inactive > a {
+    color: #b3b3b3;
 }
 
 /* Selected top-level heading */
@@ -264,7 +269,7 @@ td, th {
     background: #c9c9c9;
 }
 
-.wy-menu-vertical .tocbase li.toctree-l2.current li.toctree-l3 > a {
+.wy-menu-vertical ul.tocbase li.toctree-l2.current li.toctree-l3 > a {
     padding: 6px 0 6px 32px;
 }
 
@@ -282,7 +287,7 @@ td, th {
 }
 
 /* Level 4 heading */
-.wy-menu-vertical .tocbase li.toctree-l3.current li.toctree-l4.current > a,
+.wy-menu-vertical ul.tocbase li.toctree-l3.current li.toctree-l4.current > a,
 .wy-menu-vertical li.toctree-l4.current li.toctree-l5 > a {
     background: #bdbdbd;
 }
