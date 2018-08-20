@@ -17,7 +17,7 @@ theme:
 repo_url: https://github.com/cjsheets/readthedocs-dropdown
 
 nav:
-    - Home: index.md
+    - MkDocs: index.md
     - User Guide:
         - Writing Your Docs: user-guide/writing-your-docs.md
         - Styling Your Docs: user-guide/styling-your-docs.md

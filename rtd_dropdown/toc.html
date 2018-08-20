@@ -1,5 +1,5 @@
 {# 1st H1 is often == file name. Prevent duplicate links #}
-{% if toc_item.title != nav_item.title or (navlevel != 2 and navlevel != 1) %}
+{% if toc_item.title | lower != nav_item.title | lower or (navlevel != 2 and navlevel != 1) %}
   <li class="toctree-l{{ navlevel }}{% if toc_first_loop%} current with-children{%endif%}">
     <a href="{{ toc_item.url }}">
       {{ toc_item.title }}

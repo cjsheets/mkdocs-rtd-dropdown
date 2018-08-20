@@ -254,9 +254,14 @@ td, th {
 }
 
 /* Level 2 heading */
-.wy-menu-vertical .tocbase ul.subnav-l2,
-.wy-menu-vertical .tocbase li.toctree-l2.current li.toctree-l3 > a {
+.wy-menu-vertical ul.navtree.subnav-l1 ul.subnav-l2,
+.wy-menu-vertical ul.navtree.subnav-l1 li.toctree-l2.current li.toctree-l3 > a {
     background: #e3e3e3;
+}
+
+.wy-menu-vertical ul.subnav-l1 ul.subnav-l2,
+.wy-menu-vertical ul.subnav-l1 li.toctree-l2.current li.toctree-l3 > a {
+    background: #c9c9c9;
 }
 
 .wy-menu-vertical .tocbase li.toctree-l2.current li.toctree-l3 > a {
@@ -264,9 +269,13 @@ td, th {
 }
 
 /* Level 3 heading */
-.wy-menu-vertical .tocbase li.toctree-l2.current li.toctree-l3.current > a,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
+.wy-menu-vertical ul.navtree.subnav-l1 li.toctree-l2.current li.toctree-l3.current > a,
+.wy-menu-vertical ul.navtree.subnav-l1 li.toctree-l3.current li.toctree-l4 > a {
     background: #c9c9c9;
+}
+.wy-menu-vertical ul.subnav-l1 li.toctree-l2.current li.toctree-l3.current > a,
+.wy-menu-vertical ul.subnav-l1 li.toctree-l3.current li.toctree-l4 > a {
+    background: #bdbdbd;
 }
 .wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
     padding: 6px 0 6px 42px;
