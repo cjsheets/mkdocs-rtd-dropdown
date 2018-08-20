@@ -244,7 +244,8 @@ td, th {
 }
 
 /* Selected top-level heading */
-.wy-menu-vertical .navtree li.toctree-l2.current {
+.wy-menu-vertical .navtree li.toctree-l2.current,
+.wy-menu-vertical .navtree li.toctree-l2.current > a {
     background: #fcfcfc;
 }
 .wy-menu-vertical .navtree li.toctree-l2.current > a,
@@ -253,7 +254,6 @@ td, th {
 }
 
 .wy-menu-vertical .navtree li.toctree-l2.current > a {
-    background: #fcfcfc;
     padding: 6px 0 6px 22px;
     font-weight: bold;
 }
@@ -295,4 +295,13 @@ td, th {
     padding: 6px 0 6px 52px;
 }
 
-
+.wy-menu-vertical ul.navtree.subnav-l1 li.toctree-l2.current li.toctree-l3 > a:hover,
+.wy-menu-vertical ul.subnav-l1 li.toctree-l2.current li.toctree-l3 > a:hover,
+.wy-menu-vertical ul.navtree.subnav-l1 li.toctree-l2.current li.toctree-l3.current > a:hover,
+.wy-menu-vertical ul.tocbase li.toctree-l4 > a:hover,
+.wy-menu-vertical ul.tocbase li.toctree-l4 > a:hover,
+.wy-menu-vertical ul.tocbase li.toctree-l5 > a:hover,
+.wy-menu-vertical ul.tocbase li.toctree-l6 > a:hover,
+.wy-menu-vertical ul.tocbase li.toctree-l7 > a:hover {
+    background: #d6d6d6 !important;
+}
