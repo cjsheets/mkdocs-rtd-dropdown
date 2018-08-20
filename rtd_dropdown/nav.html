@@ -1,36 +1,44 @@
+{# Root level label for a group of root level children (folder > files) #}
 {%- if nav_item.is_section %}
-  {# Sections represent top level folders #}
-  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active and not nav_item.children %} current{%endif%}">
-    <span class="caption-text">{{ nav_item.title }}</span>
+  <li class="navtree toctree-l{{ navlevel }} label">
+    <p class="caption">{{ nav_item.title }}</p>
   </li>
+{%- endif %}
 
-{%- else %}
-  {# MkDocs provides nested children for the nav_item == page  #}
-  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
-    {%- if nav_item == page %}
-      <span class="toctree-expand"></span>
-    {% endif %}
+{# Root level links to pages that are not currently active #}
+{%- if nav_item != page and not nav_item.children %}
+  <li class="navtree toctree-l{{ navlevel }} inactive">
     <a class="{% if nav_item.active%}current{%endif%}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
   </li>
 {%- endif %}
 
 {%- if nav_item == page or nav_item.children %}
-  <li class="navtree toctree-l{{ navlevel }}{% if nav_item.active and not nav_item.children %} current{%endif%}">
-      {%- if nav_item == page %}
-        {% for toc_item in page.toc %}
-          {{ ("nav_item == page: " + toc_item.title) | debug }}
-          {% include 'toc.html' %}
-        {%- endfor %}
-      {%- endif %}
-      {%- if nav_item.children %}
-    <ul class="navtree subnav-l{{ navlevel }}">
+  {# Root level pages #}
+  {%- if nav_item == page %}
+    {# Label for currently active root level page #}
+    <li class="navtree toctree-l{{ navlevel }} page current">
+      <a class="current" href="{{ nav_item.url|url }}">
+        {{ nav_item.title }}
+        <span class="toctree-expand"></span>
+      </a>
+    </li>
+    {% for toc_item in page.toc %}
+      {%- set toc_first_loop = loop.first %}
+      {% include 'toc.html' %}
+    {%- endfor %}
+  {%- endif %}
+
+  {# Group of pages in a root level folder #}
+  {%- if nav_item.children %}
+    <li class="navtree toctree-l{{ navlevel }} group">
+      <ul class="navtree subnav-l{{ navlevel }} current">
         {%- set navlevel = navlevel + 1%}
         {%- for nav_item in nav_item.children %}
           {{ ("nav_item child: " + nav_item.title) | debug }}
           {% include 'nav.html' %}
         {% endfor %}
         {%- set navlevel = navlevel - 1%}
-    </ul>
-      {%- endif %}
-  </li>
+      </ul>
+    </li>
+  {%- endif %}
 {%- endif %}

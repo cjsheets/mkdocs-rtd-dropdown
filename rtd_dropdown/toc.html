@@ -1,23 +1,23 @@
-{{ ("navlevel: " ~ navlevel ~ ", toc_item.title: " ~ toc_item.title) | debug }}
-
 {# 1st H1 is often == file name. Prevent duplicate links #}
 {% if toc_item.title != nav_item.title or navlevel != 2 %}
   <li class="toctree-l{{ navlevel }}">
-    <span class="toctree-expand"></span>
-    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+    <a href="{{ toc_item.url }}">
+      {{ toc_item.title }}
+      <span class="toctree-expand"></span>
+    </a>
   </li>
 {% endif %}
 
 {% if toc_item.children %}
-  <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
-    <ul class="subnav-l{{ navlevel }}">
+  <li class="toctree-l{{ navlevel }}">
+    <ul class="subnav-l{{ navlevel }}{% if toc_first_loop%} current{%endif%}">
     {%- set navlevel = navlevel + 1%}
     {% for toc_item in toc_item.children %}
+      {%- set toc_first_loop = loop.first %}
       {% if toc_item.children %}
           {% include 'toc.html' %}
       {% else %}
-        {{ ("navlevel: " ~ navlevel ~ " + 1, toc_item.title: " ~ toc_item.title) | debug }}
-        <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+        <li class="toctree-l{{ navlevel }}">
           <a class="toctree-l{{ navlevel + 1 }}" href="{{ toc_item.url }}">{{ toc_item.title }}</a>
         </li>
       {%- endif %}

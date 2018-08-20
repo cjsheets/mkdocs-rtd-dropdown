@@ -196,22 +196,15 @@ td, th {
  */
 
 .wy-menu-vertical .tocbase li a {
+    position: relative;
     color: #808080;
     font-size: 14px;
     font-weight: 400;
 }
 
-.wy-menu-vertical .tocbase li.toctree-l2,
-.wy-menu-vertical .tocbase li.toctree-l3,
-.wy-menu-vertical .tocbase li.toctree-l4,
-.wy-menu-vertical .tocbase li.toctree-l5 {
-    position: relative;
-}
-
 .wy-menu-vertical .tocbase span.toctree-expand {
-    z-index: 1000;
     position: absolute;
-    top: 5px;
+    top: 6px;
     margin: 0px;
     padding: 0px;
     font-size: 12px !important;
@@ -233,15 +226,16 @@ td, th {
     padding: 6px 22px;
     font-weight: bold;
 }
-.wy-menu-vertical .tocbase li.toctree-l2.current > span.toctree-expand {
+.wy-menu-vertical .tocbase li.toctree-l2.current > a > span.toctree-expand {
     left: 6px;
 }
 
 /* Level 2 heading */
-
+.wy-menu-vertical .tocbase ul.subnav-l2 {
+    background: #c9c9c9;
+}
 
 .wy-menu-vertical .tocbase ul.subnav-l2 {
-    color: #808080;
     background: #c9c9c9;
 }
 

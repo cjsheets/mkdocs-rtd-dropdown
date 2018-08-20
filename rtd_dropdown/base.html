@@ -87,6 +87,7 @@
 	<ul class="tocbase current">
     {% set navlevel = 1 %}
     {% for nav_item in nav %}
+      {{ ("for nav_item: " ~ nav_item.title) | debug }}
       {% include 'nav.html' %}
     {% endfor %}
   </ul>
