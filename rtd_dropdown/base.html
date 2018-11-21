@@ -114,6 +114,12 @@
               {% endblock %}
             </div>
           </div>
+          
+          <!-- Disqus integration -->
+          {% block disqus %}
+            {% include "integrations/disqus.html" %}
+          {% endblock %}
+
       {%- block footer %}
           {% include "footer.html" %}
       {% endblock %}
